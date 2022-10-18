@@ -24,7 +24,7 @@ const SideBar = () => {
                 variant="contained"
                 color="primary"
                 style={{
-
+                    fontWeight: "bold"
                 }}
             >
                 Меню

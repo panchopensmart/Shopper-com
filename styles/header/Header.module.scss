@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:  0 15px 0 15px;
+}
+
+.logoHeader {
+    font-family: 'Prompt', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.btnHeader {
+    font-weight: bold;
+}
+.menuIcon {
+    color: white;
+    font-size: 29px;
+}
+
+.btnEnterAcc {
+    height: 30px;
+}

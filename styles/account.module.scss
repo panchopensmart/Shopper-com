@@ -1,27 +1,39 @@
 .account {
+  width: 1300px;
   display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+
+  div {
+    /*TODO При медиа запросе сделать чтобы все контейнеры отображались во всю ширину и в центре
+       а отступ был только внизу*/
+    margin: 10px;
+
+  }
+
 }
 
-.userNameCard {
 
+.userNameCard {
+  flex: 1;
 }
 
 .userDelivery {
-
+  flex: 2;
 }
 
 .userPersonalSale {
-
+  flex: 1;
 }
 
 .userBalance {
-
+  flex: 1;
 }
 
 .userPays {
-
+  flex: 1;
 }
 
 .userLiked {
-
+  flex: 1;
 }

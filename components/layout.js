@@ -4,7 +4,13 @@ import Footer from "./Footer";
 
 const Layout = ({children}) => {
     return (
-        <div className="content">
+        <div className="content"
+             style={{
+                 maxWidth: "1900px",
+                 margin: "0 auto",
+                 padding: "0 15px 0 15px;"
+             }}
+        >
             <Header/>
             {children}
             <Footer/>

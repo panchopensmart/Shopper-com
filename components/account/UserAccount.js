@@ -7,18 +7,16 @@ import Img from '/public/backgroundImageCard.jpg'
 
 export default function ActionAreaCard() {
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ minWidth: 500}} >
             <CardActionArea>
-                <CardMedia
-                    component="img"
-                    height="140"
-                    image="/public/backgroundImageCard.jpg"
-                    alt="green iguana"
-                />
                 <Avatar>N</Avatar>
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                        Lizard
+                        Account 360
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                        Lizards are a widespread group of squamate reptiles, with over 6,000
+                        species, ranging across all continents except Antarctica
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                         Lizards are a widespread group of squamate reptiles, with over 6,000

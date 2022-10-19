@@ -37,10 +37,9 @@ const SideBar = () => {
                 onClose={handleClose}
             >
                 <Link href="/main"><MenuItem onClick={handleClose}>Главная</MenuItem></Link>
-                <Link href="/liked"><MenuItem onClick={handleClose}>Понравилось</MenuItem></Link>
+                <Link href="/account"><MenuItem onClick={handleClose}>Личный кабинет</MenuItem></Link>
                 <Link href="/paymentCart"><MenuItem onClick={handleClose}>Корзина</MenuItem></Link>
                 <Link href="/delivery"><MenuItem onClick={handleClose}>Заказы</MenuItem></Link>
-                <Link href="/messages"><MenuItem onClick={handleClose}>Сообщения</MenuItem></Link>
                 <Link href="/signin"><MenuItem onClick={handleClose}>Выход</MenuItem></Link>
 
             </Menu>

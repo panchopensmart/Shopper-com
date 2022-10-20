@@ -6,17 +6,15 @@ import Typography from "@mui/material/Typography";
 
 const UserLiked = () => {
     return (
-        <Card sx={{ minWidth: 600}}>
-            <CardActionArea>
-                <Avatar>N</Avatar>
+        <Card sx={{ width: 360}} style={{borderRadius: "30px"}}>
+            <CardActionArea style={{backgroundColor: "#E0D2F9"}}>
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                        Liked 500
+                        Понравившиеся
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000
-                        species, ranging across all continents except Antarctica
-                    </Typography>
+                    <div className="folder1" style={{width: "120px", height: "120px", backgroundColor: "darkblue", borderRadius: "20px"}}>
+
+                    </div>
                 </CardContent>
             </CardActionArea>
         </Card>

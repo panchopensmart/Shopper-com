@@ -6,16 +6,15 @@ import Typography from "@mui/material/Typography";
 
 const UserPays = () => {
     return (
-        <Card sx={{ minWidth:360 }}>
-            <CardActionArea>
-                <Avatar>N</Avatar>
+        <Card sx={{ width: 360}} style={{borderRadius: "30px"}}>
+            <CardActionArea style={{backgroundColor: "#F9E8BD"}}>
+
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                        Pays 360
+                        Чеки
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000
-                        species, ranging across all continents except Antarctica
+                        Посмотреть чеки оплаты
                     </Typography>
                 </CardContent>
             </CardActionArea>

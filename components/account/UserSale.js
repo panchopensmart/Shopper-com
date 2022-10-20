@@ -3,19 +3,27 @@ import {Avatar, CardActionArea} from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
+import Chip from '@mui/joy/Chip';
+import TbDiscount2 from 'react-icons/tb'
 
 const UserSale = () => {
     return (
-        <Card sx={{ minWidth: 360  }}>
-            <CardActionArea>
-                <Avatar>N</Avatar>
+        <Card sx={{ width: 360 }} style={{borderRadius: "30px"}}>
+            <CardActionArea style={{backgroundColor: "#C2CEFA"}}>
                 <CardContent>
+                    <Typography gutterBottom variant="h2" component="div">
+                        25%
+                    </Typography>
                     <Typography gutterBottom variant="h5" component="div">
-                        Sale 600
+                       Персональная скидка
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000
-                        species, ranging across all continents except Antarctica
+                        Данная скидка распространяется на категории:
+                    </Typography>
+                    <Typography sx={{color: "gray", fontWeight: "bold"}}>
+                        (Скидка доступна в течении 24 часов)
+                        {//TODO сделать чтобы время менялось после предоставления скидки
+                        }
                     </Typography>
                 </CardContent>
             </CardActionArea>

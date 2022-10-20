@@ -6,16 +6,15 @@ import Card from "@mui/material/Card";
 
 const UserBalance = () => {
     return (
-        <Card sx={{ minWidth: 500}}>
-            <CardActionArea>
-                <Avatar>N</Avatar>
+        <Card sx={{ width: 360}} style={{borderRadius: "30px"}}>
+            <CardActionArea style={{backgroundColor: "#A6D2E3"}}>
+
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                        Balance - 360
+                        Баланс
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000
-                        species, ranging across all continents except Antarctica
+                    <Typography variant="body1" color="text.secondary">
+                        0 руб.
                     </Typography>
                 </CardContent>
             </CardActionArea>

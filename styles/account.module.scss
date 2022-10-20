@@ -1,39 +1,53 @@
-.account {
-  width: 1300px;
+.pageApp {
   display: flex;
-  flex-wrap: wrap;
-  margin: 0 auto;
+}
+.descriptionBlock {
+  width: 900px;
+  max-height: 660px;
+  background-color: wheat;
+  margin-top: 15px;
+  margin-left: 15px;
+  border-radius: 30px;
+  position: relative;
 
   div {
-    /*TODO При медиа запросе сделать чтобы все контейнеры отображались во всю ширину и в центре
-       а отступ был только внизу*/
-    margin: 10px;
-
+    width: 100%;
+    text-align: center;
+    margin-top: 330px;
   }
 
 }
 
 
-.userNameCard {
-  flex: 1;
+.menu {
+  max-width: 800px;
+  display: flex;
+  margin-left: 150px;
+  flex-direction: column;
+  align-items: center;
+  div {
+    /*TODO При медиа запросе сделать чтобы все контейнеры отображались во всю ширину и в центре
+       а отступ был только внизу*/
+    margin: 5px;
+  }
+
 }
 
-.userDelivery {
-  flex: 2;
+@mixin blocksAccount{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
 }
 
-.userPersonalSale {
-  flex: 1;
+.firstBlock {
+  @include blocksAccount;
 }
 
-.userBalance {
-  flex: 1;
+.secondBlock{
+  @include blocksAccount;
 }
 
-.userPays {
-  flex: 1;
-}
-
-.userLiked {
-  flex: 1;
+.thirdBlock {
+  @include blocksAccount;
 }

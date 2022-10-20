@@ -3,24 +3,20 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import {Avatar, CardActionArea} from '@mui/material';
-import Img from '/public/backgroundImageCard.jpg'
+import {MdOutlineSwitchAccount} from 'react-icons/md'
 
 export default function ActionAreaCard() {
     return (
-        <Card sx={{ minWidth: 500}} >
-            <CardActionArea>
-                <Avatar>N</Avatar>
+        <Card sx={{ width: 360}} style={{borderRadius: "30px"}}>
+            <CardActionArea style={{backgroundColor: "#F0ADFF"}}>
+                <CardMedia
+                    component="img"
+                    height="140"
+                    image="/backgroundImageCard.jpg"
+                />
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        Account 360
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000
-                        species, ranging across all continents except Antarctica
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000
-                        species, ranging across all continents except Antarctica
+                    <Typography gutterBottom variant="h5" component="div" >
+                        Полупанов Александр
                     </Typography>
                 </CardContent>
             </CardActionArea>

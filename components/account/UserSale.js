@@ -1,10 +1,8 @@
 import React from 'react';
-import {Avatar, CardActionArea} from "@mui/material";
+import {CardActionArea} from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
-import Chip from '@mui/joy/Chip';
-import TbDiscount2 from 'react-icons/tb'
 
 const UserSale = () => {
     return (

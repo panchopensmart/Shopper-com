@@ -6,9 +6,8 @@ const Layout = ({children}) => {
     return (
         <div className="content"
              style={{
-                 maxWidth: "1900px",
+                 maxWidth: "1920px",
                  margin: "0 auto",
-                 padding: "0 15px 0 15px;"
              }}
         >
             <Header/>

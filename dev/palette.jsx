@@ -1,11 +1,4 @@
 import React from 'react';
-import {
-    Category,
-    Component,
-    Variant,
-    Palette,
-} from '@react-buddy/ide-toolbox';
-import MUIPalette from "@react-buddy/palette-mui";
 
 export const PaletteTree = () => (
     <Palette>

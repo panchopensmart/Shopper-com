@@ -1,3 +1,6 @@
+$allBlocksMargin: 15px;
+$allBlocksRadius: 25px;
+
 .pageApp {
   display: flex;
 }
@@ -5,20 +8,17 @@
   width: 900px;
   max-height: 660px;
   background-color: wheat;
-  margin-top: 15px;
-  margin-left: 15px;
-  border-radius: 30px;
+  margin-top: $allBlocksMargin;
+  margin-left: $allBlocksMargin;
+  border-radius: $allBlocksRadius;
   position: sticky;
   top: 0;
-
-  div {
-    width: 100%;
-    text-align: center;
-    margin-top: 330px;
-  }
-
+    div {
+      width: 100%;
+      text-align: center;
+      margin-top: 330px;
+    }
 }
-
 
 .menu {
   max-width: 800px;
@@ -52,3 +52,15 @@
 .thirdBlock {
   @include blocksAccount;
 }
+
+.userNameCard, .userDelivery, .userPersonalSale,
+.userBalance .userLiked .userPays {
+  border-radius: $allBlocksRadius;
+}
+
+.userNameCard {border-radius: $allBlocksRadius;}
+.userDelivery {border-radius: $allBlocksRadius;}
+.userPersonalSale {border-radius: $allBlocksRadius;}
+.userBalance {border-radius: $allBlocksRadius;}
+.userLiked {border-radius: $allBlocksRadius;}
+.userPays {border-radius: $allBlocksRadius;}

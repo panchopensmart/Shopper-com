@@ -1,0 +1,15 @@
+$heightParametersBar: 50px;
+$allBlocksMargin: 15px;
+$allBlocksRadius: 25px;
+
+
+
+.ParametersBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: $allBlocksMargin;
+  height: $heightParametersBar;
+  background-color: #535767;
+}

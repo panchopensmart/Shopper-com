@@ -3,10 +3,11 @@ import {CardActionArea} from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
+import styles from '../../styles/account.module.scss'
 
 const UserSale = () => {
     return (
-        <Card sx={{ width: 360 }} style={{borderRadius: "30px"}}>
+        <Card sx={{ width: 360 }} className={styles.userPersonalSale}>
             <CardActionArea style={{backgroundColor: "#C2CEFA"}}>
                 <CardContent>
                     <Typography gutterBottom variant="h2" component="div">

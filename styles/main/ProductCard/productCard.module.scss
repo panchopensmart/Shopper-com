@@ -4,30 +4,19 @@ $color-gray: #9CA3AF;
 $color-black: #1F2937;
 $card-size: 23rem;
 
-body {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background-image: linear-gradient(45deg, $color-purple, $color-pink);
-  font-family: 'Montserrat', sans-serif;
-}
 
-* {
-  box-sizing: border-box;
-}
 
 .carousel {
+  margin: 6% auto;
   position: relative;
   width: $card-size;
   height: $card-size;
   perspective: 500px;
   transform-style: preserve-3d;
+
 }
 
-.card-container {
+.cardContainer {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -38,6 +27,9 @@ body {
           translateX(calc(var(--direction) * -5rem));
   filter: blur(calc(var(--abs-offset) * 1rem));
   transition: all 0.3s ease-out;
+  background-color: gray;
+  border-radius: 30px;
+
 }
 
 .card {
@@ -49,7 +41,7 @@ body {
   color: $color-gray;
   text-align: justify;
   transition: all 0.3s ease-out;
-
+  ;
   h2 {
     text-align: center;
     font-size: 2rem;
@@ -64,7 +56,7 @@ body {
   }
 }
 
-.nav {
+@mixin switchButtons {
   color: white;
   font-size: 5rem;
   position: absolute;
@@ -77,13 +69,16 @@ body {
   user-select: none;
   background: unset;
   border: unset;
-
-  &.left {
-    transform: translateX(-100%) translatey(-50%);
-  }
-
-  &.right {
-    right: 0;
-    transform: translateX(100%) translatey(-50%);
-  }
 }
+
+
+.navLeft {
+  transform: translateX(-100%) translatey(-50%);
+  @include switchButtons;
+}
+
+.navRight {
+  transform: translateX(400%) translatey(-50%);
+  @include switchButtons;
+}
+

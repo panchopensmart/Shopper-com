@@ -1,12 +1,13 @@
 import React from 'react';
-import Index from "../components/main/ParametersBar";
+import ParametersBar from "../components/main/ParametersBar";
+import Cards from "../components/main/ProductCard/index";
 
 
 const Main = () => {
     return (
         <div>
-            <Index></Index>
-
+            <ParametersBar></ParametersBar>
+            <Cards></Cards>
         </div>
     );
 };

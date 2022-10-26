@@ -2,6 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Carousel from 'react-material-ui-carousel'
 import TimeLine from "./TimeLineDelivery";
+import {IoMdCheckmark} from "react-icons/io"
 import Button from '@mui/material/Button';
 import styles from "../../styles/delivery/delivery.module.scss";
 import Image from "next/image";
@@ -20,7 +21,7 @@ const PackageCard = () => {
                     <Image src="/testImagesCaruselDelivery/JacketAdidas.jpg" width={200} height={200}></Image>
                     <Image src="/testImagesCaruselDelivery/JacketAdidas.jpg" width={200} height={200}></Image>
                 </Carousel>
-                <Button sx={{width: 200, marginLeft: "15px", marginTop: "5px", borderRadius: "15px"}} variant="contained">Товар пришел</Button>
+                <Button sx={{width: 200, marginLeft: "15px", marginTop: "5px", borderRadius: "15px"}} variant="contained" color="success" endIcon={<IoMdCheckmark/>}>Заказ пришел</Button>
             </div>
             <div className={styles.infoBlock}>
                 <Typography variant="h4" gutterBottom>Order #4661</Typography>

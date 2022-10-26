@@ -1,10 +1,11 @@
 import React from 'react';
-//TODO сделать пункт с доставкой в определённое время как https://codepen.io/oliviale/pen/ELPvLM
+import styles from '../styles/delivery/delivery.module.scss'
 //TODO сделать пункт какая будет погода иконкой во время доставки (react-icons Weather icons)
+
 const Delivery = () => {
     return (
         <div>
-            Delivery
+
         </div>
     );
 };

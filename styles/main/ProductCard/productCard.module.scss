@@ -2,7 +2,7 @@ $color-purple: #8B5CF6;
 $color-pink: #EC4899;
 $color-gray: #9CA3AF;
 $color-black: #1F2937;
-$card-size: 23rem;
+$card-size: 30rem;
 
 
 
@@ -73,12 +73,12 @@ $card-size: 23rem;
 
 
 .navLeft {
-  transform: translateX(-100%) translatey(-50%);
+  transform: translateX(-80%) translatey(-50%);
   @include switchButtons;
 }
 
 .navRight {
-  transform: translateX(400%) translatey(-50%);
+  transform: translateX(530%) translatey(-50%);
   @include switchButtons;
 }
 

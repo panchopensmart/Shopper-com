@@ -1,0 +1,25 @@
+.Card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  width: 50%;
+  min-width: 700px;
+  height: 270px;
+
+  background-color: #9CA3AF;
+  margin: 15px;
+  border-radius: 25px;
+}
+
+.carousel {
+  margin-left: 15px;
+  img {
+    border-radius: 25px;
+  }
+}
+
+.infoBlock {
+  height: 200px;
+  padding-left: 30px;
+}

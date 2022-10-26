@@ -6,7 +6,7 @@ import CardItem from "./Card";
 
 const CARDS = 10
 const MAX_VISIBILITY = 3
-
+    //TODO сделать чтобы карточки переключались по стрелкам
 const Carousel = ({children}) => {
     const [active, setActive] = useState(2);
     const count = React.Children.count(children);

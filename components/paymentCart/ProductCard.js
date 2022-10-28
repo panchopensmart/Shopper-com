@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "../../styles/productCart/profuctCart.module.scss";
+import styles from "../../styles/productCart/productCart.module.scss";
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Stack from '@mui/material/Stack';

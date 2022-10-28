@@ -1,12 +1,17 @@
 $allBlocksMargin: 15px;
 $allBlocksRadius: 25px;
 
+.mainBlock {
+  display: flex;
+  justify-content: space-between;
+}
+
 .productCard {
   display: flex;
   flex-wrap: wrap;
   padding: $allBlocksMargin;
   margin: $allBlocksMargin;
-  width: 50%;
+  width: 100%;
   min-width: 700px;
   min-height: 200px;
   background-color: gray;

@@ -1,6 +1,7 @@
 import React from 'react';
 import ParametersBar from "../components/main/ParametersBar";
 import Cards from "../components/main/ProductCard/index";
+import Slider from "../components/main/PaginationSlider";
 
 
 const Main = () => {
@@ -8,6 +9,7 @@ const Main = () => {
         <div>
             <ParametersBar></ParametersBar>
             <Cards></Cards>
+            <Slider/>
         </div>
     );
 };

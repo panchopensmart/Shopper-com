@@ -16,6 +16,7 @@ const PackageCard = () => {
         <Box className={styles.Card}>
             <div>
                 {/* TODO отменить начальную анимацию в карусле*/}
+                {/*TODO сделать так чтобы фотографии нельзя была брать драг н дропом (драггед)*/}
                 <Carousel sx={{width: 200}} indicators={false} className={styles.carousel}>
                     <Image src="/testImagesCaruselDelivery/JacketAdidas.jpg" width={200} height={200}></Image>
                     <Image src="/testImagesCaruselDelivery/JacketAdidas.jpg" width={200} height={200}></Image>

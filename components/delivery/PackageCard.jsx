@@ -30,7 +30,6 @@ const PackageCard = () => {
                     <Chip label="Куртка Adidas"></Chip>
                     <Chip label="Куртка Adidas"></Chip>
                     <Chip label="Куртка Adidas"></Chip>
-
                 </Typography>
             </div>
             <TimeLine></TimeLine>

@@ -6,13 +6,13 @@ import CardItem from "./Card";
 
 const CARDS = 10
 const MAX_VISIBILITY = 3
-    //TODO сделать чтобы карточки переключались по стрелкам
+    //TODO сделать другие стрелки
 const Carousel = ({children}) => {
     const [active, setActive] = useState(2);
     const count = React.Children.count(children);
     const classesLeftBtn = `nav left`
     const classesRightBtn = `nav left`
-
+        //TODO сделать чтобы скролл выполнялся при прокрутке колеса мыши и стрелками на клавиатуре (вправо - влево)
     return (
         <div className={styles.carousel}>
             {active > 0 && <button className={styles.navLeft} onClick={() => setActive(i => i - 1)}><TiChevronLeftOutline/></button>}

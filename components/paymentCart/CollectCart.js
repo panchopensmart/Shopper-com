@@ -1,13 +1,14 @@
 import React from 'react';
 import styles from './../../styles/productCart/collectCart.module.scss'
-import SelectedProduct from "./SelectedProduct";
-import CountPrice from "./CountPrice";
+import BlockSelectedProduct from "./BlockSelectedProduct";
+import BlockCountPrice from "./BlockCountPrice";
 
 const CollectCart = () => {
     return (
         <div className={styles.collectCart}>
-            <SelectedProduct/>
-            <CountPrice/>
+            <BlockSelectedProduct/>
+            
+            <BlockCountPrice/>
         </div>
     );
 };

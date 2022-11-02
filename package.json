@@ -23,6 +23,7 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.6.0",
     "react-material-ui-carousel": "^3.4.2",
+    "react-redux": "^8.0.4",
     "redux": "^4.2.0",
     "sass": "^1.55.0",
     "storybook": "^6.5.12"
@@ -39,6 +40,7 @@
     "@storybook/testing-library": "^0.0.13",
     "babel-loader": "^8.2.5",
     "eslint": "8.25.0",
-    "eslint-config-next": "12.3.1"
+    "eslint-config-next": "12.3.1",
+    "redux-devtools": "^3.7.0"
   }
 }

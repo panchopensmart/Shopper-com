@@ -7,7 +7,6 @@ const CollectCart = () => {
     return (
         <div className={styles.collectCart}>
             <BlockSelectedProduct/>
-            
             <BlockCountPrice/>
         </div>
     );

@@ -7,7 +7,6 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
 import Menu from "@mui/material/Menu";
 import Link from "next/link";
 import MenuItem from "@mui/material/MenuItem";
@@ -103,15 +102,6 @@ export default function SearchAppBar() {
                     >
                         <p className={style.logoHeader}>Shopper.com</p>
                     </Typography>
-                    <Search>
-                        <SearchIconWrapper>
-                            <SearchIcon />
-                        </SearchIconWrapper>
-                        <StyledInputBase
-                            placeholder="Найти..."
-                            inputProps={{ 'aria-label': 'search' }}
-                        />
-                    </Search>
                 </Toolbar>
             </AppBar>
         </Box>

@@ -73,12 +73,12 @@ $card-size: 30rem;
 
 
 .navLeft {
-  transform: translateX(-80%) translatey(-50%);
+  transform: translateX(-100%) translatey(-50%);
   @include switchButtons;
 }
 
 .navRight {
-  transform: translateX(530%) translatey(-50%);
+  transform: translateX(830%) translatey(-50%);
   @include switchButtons;
 }
 

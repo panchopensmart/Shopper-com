@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import {TiChevronLeftOutline, TiChevronRightOutline} from 'react-icons/ti';
+import {TiChevronRightOutline} from 'react-icons/ti';
+import {FaChevronCircleLeft, FaChevronCircleRight} from 'react-icons/fa'
 import styles from '../../../styles/main/ProductCard/productCard.module.scss'
 import CardItem from "./Card";
 
@@ -15,7 +16,7 @@ const Carousel = ({children}) => {
         //TODO сделать чтобы скролл выполнялся при прокрутке колеса мыши и стрелками на клавиатуре (вправо - влево)
     return (
         <div className={styles.carousel}>
-            {active > 0 && <button className={styles.navLeft} onClick={() => setActive(i => i - 1)}><TiChevronLeftOutline/></button>}
+            {active > 0 && <button className={styles.navLeft} onClick={() => setActive(i => i - 1)} ><FaChevronCircleLeft style={{width: "50px"}}/></button>}
             {React.Children.map(children, (child, i) => (
                 <div className={styles.cardContainer} style={{
                     '--active': i === active ? 1 : 0,
@@ -29,11 +30,11 @@ const Carousel = ({children}) => {
                     {child}
                 </div>
             ))}
-            {active < count - 1 && <button className={styles.navRight} onClick={() => setActive(i => i + 1)}><TiChevronRightOutline/></button>}
+            {active < count - 1 && <button className={styles.navRight} onClick={() => setActive(i => i + 1)}><FaChevronCircleRight style={{width: "50px"}}/></button>}
         </div>
     );
 };
-
+    //TODO сделать чтобы кнопки были как на Озон (стрелки в кружке, при наведении менялись на контрастный цвет)
  const Cards = () => (
     <div className='Cards'>
         <Carousel>

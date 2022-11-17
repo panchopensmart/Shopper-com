@@ -16,6 +16,8 @@
     "@mui/icons-material": "^5.10.9",
     "@mui/lab": "^5.0.0-alpha.105",
     "@mui/material": "^5.10.11",
+    "@redux-devtools/extension": "^3.2.3",
+    "@reduxjs/toolkit": "^1.9.0",
     "@storybook/cli": "^6.5.12",
     "joi": "^17.6.3",
     "next": "12.3.1",
@@ -25,6 +27,7 @@
     "react-material-ui-carousel": "^3.4.2",
     "react-redux": "^8.0.4",
     "redux": "^4.2.0",
+    "redux-thunk": "^2.4.2",
     "sass": "^1.55.0",
     "storybook": "^6.5.12"
   },

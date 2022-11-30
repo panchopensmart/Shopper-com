@@ -14,33 +14,32 @@ const Account = () => {
     return (
         <div className={styles.pageApp}>
         <div className={styles.menu} >
-            <div className={styles.firstBlock}>
                 <div className={styles.userNameCard}>
                     <UserAccount/>
                 </div>
+
                 <div className={styles.userDelivery}>
                     <UserDelivery/>
                 </div>
-            </div>
-            <div className={styles.secondBlock}>
+
                 <div className={styles.userPersonalSale}>
                     <UserSale/>
                 </div>
+
                 <div className={styles.userBalance}>
                     <UserBalance/>
                 </div>
-            </div>
-            <div className={styles.thirdBlock}>
+
                 <div className={styles.userLiked}>
                     <UserLiked/>
                 </div>
+
                 <div className={styles.userPays}>
                     <UserPays/>
                 </div>
-            </div>
         </div>
         <div className={styles.descriptionBlock}>
-            <Chip size="small" icon={<MouseIcon />}  label="Кликните слева по плитке..."  variant="outlined" style={{width: "250px", marginLeft: "40%", fontWeight: "bold"}} />
+            <Chip size="small" icon={<MouseIcon />}  label="Кликните слева по плитке..."  variant="outlined" style={{width: "250px", fontWeight: "bold"}} />
         </div>
         </div>
     );

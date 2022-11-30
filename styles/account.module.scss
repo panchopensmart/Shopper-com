@@ -2,55 +2,90 @@ $allBlocksMargin: 15px;
 $allBlocksRadius: 25px;
 
 .pageApp {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
 }
 .descriptionBlock {
   width: 900px;
   max-height: 660px;
   background-color: wheat;
-  margin-top: $allBlocksMargin;
-  margin-left: $allBlocksMargin;
+  margin: $allBlocksMargin auto 0;
   border-radius: $allBlocksRadius;
   position: sticky;
   top: 0;
+  display: grid;
     div {
-      width: 100%;
-      text-align: center;
-      margin-top: 330px;
+      align-self:center;
+      justify-self: center;
+
     }
 }
 
 .menu {
-  max-width: 800px;
-  display: flex;
-  margin-left: 150px;
-  flex-direction: column;
-  align-items: center;
+  padding: 20px;
+  display: grid;
+  width: 800px;
+  justify-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-row-gap: 20px;
   div {
     /*TODO При медиа запросе сделать чтобы все контейнеры отображались во всю ширину и в центре
        а отступ был только внизу*/
-    margin: 5px;
+
   }
 
 }
 
-@mixin blocksAccount{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-
+@media screen and (max-width: 1699px){
+  .menu {
+    padding-left: 20%;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    width: 100%;
+  }
+  .pageApp {
+    grid-template-columns: auto 1fr;
+  }
 }
 
-.firstBlock {
-  @include blocksAccount;
+@media screen and (max-width: 1431px){
+  .pageApp {
+    grid-template-columns: 1fr 2fr;
+  }
+  .descriptionBlock {
+    width: 100%;
+    height: 500px;
+    div {
+      align-items: center;
+
+    }
+  }
+  .menu {
+    width: 400px;
+    padding-left: 0;
+    margin: 0 auto;
+
+  }
 }
 
-.secondBlock{
-  @include blocksAccount;
-}
+@media screen and (max-width: 728px){
+  .pageApp {
+    grid-template-columns: 1fr;
+  }
 
-.thirdBlock {
-  @include blocksAccount;
+  .menu {
+    width: 100%;
+    padding: 0;
+    margin-top: $allBlocksMargin;
+
+    div {
+      width: 100%;
+    }
+  }
+
+  .descriptionBlock {
+    display: none;
+  }
 }
 
 .userNameCard, .userDelivery, .userPersonalSale,

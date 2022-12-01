@@ -1,13 +1,13 @@
 import React from 'react';
 import Card from "@mui/material/Card";
-import {Avatar, CardActionArea} from "@mui/material";
+import {CardActionArea} from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import styles from '../../styles/account.module.scss'
 
-const UserPays = () => {
+const Weather = () => {
     return (
-        <Card sx={{ width: 360}} className={styles.userPays}>
+        <Card  className={styles.weather}>
             <CardActionArea style={{backgroundColor: "#F9E8BD"}}>
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
@@ -22,4 +22,4 @@ const UserPays = () => {
     );
 };
 
-export default UserPays;
+export default Weather;

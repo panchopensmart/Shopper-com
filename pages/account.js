@@ -4,7 +4,7 @@ import UserAccount from '../components/account/UserAccount'
 import UserDelivery from "../components/account/UserDelivery";
 import UserSale from "../components/account/UserSale";
 import UserBalance from "../components/account/UserBalance";
-import UserPays from "../components/account/UserPays";
+import Weather from "../components/account/Weather";
 import UserLiked from "../components/account/UserLiked";
 import Chip from '@mui/material/Chip';
 import MouseIcon from '@mui/icons-material/Mouse';
@@ -34,8 +34,8 @@ const Account = () => {
                     <UserLiked/>
                 </div>
 
-                <div className={styles.userPays}>
-                    <UserPays/>
+                <div className={styles.weather}>
+                    <Weather/>
                 </div>
         </div>
         <div className={styles.descriptionBlock}>

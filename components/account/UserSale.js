@@ -7,7 +7,7 @@ import styles from '../../styles/account.module.scss'
 
 const UserSale = () => {
     return (
-        <Card sx={{ width: 360 }} className={styles.userPersonalSale}>
+        <Card className={styles.userPersonalSale}>
             <CardActionArea style={{backgroundColor: "#C2CEFA"}}>
                 <CardContent>
                     <Typography gutterBottom variant="h2" component="div">

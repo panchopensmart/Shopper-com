@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/project.iml" filepath="$PROJECT_DIR$/.idea/project.iml" />
+      <module fileurl="file://D:/PHPstorm/serverShop/.idea/serverShop.iml" filepath="D:/PHPstorm/serverShop/.idea/serverShop.iml" />
     </modules>
   </component>
 </project>

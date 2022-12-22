@@ -9,13 +9,14 @@ const MainPage = () => {
         return (
             <Main/>
         );
+    } else {
+        return (
+            <>
+                Not signed in <br />
+                <button onClick={() => signIn()}>Sign in</button>
+            </>
+        )
     }
-    return (
-        <>
-            Not signed in <br />
-            <button onClick={() => signIn()}>Sign in</button>
-        </>
-    )
 };
 
 export default MainPage;

@@ -1,7 +1,7 @@
 import React from 'react';
 import Chip from '@mui/material/Chip';
 import FaceIcon from '@mui/icons-material/Face';
-const CardItem = ({title, content}) => {
+const CardItem = ({data, title, content}) => {
     return (
         <div className='card'>
             {/*ToDO сделать поля:
@@ -17,10 +17,10 @@ const CardItem = ({title, content}) => {
             */}
 
             <h2>{title}</h2>
-            <p>{content}</p>
             <Chip icon={<FaceIcon />} label="With Icon" variant="outlined"/>
             <Chip icon={<FaceIcon />} label="With Icon" variant="outlined"/>
             <Chip icon={<FaceIcon />} label="With Icon" variant="outlined"/>
+            <p>{data.title}</p>
         </div>
     );
 };

@@ -9,6 +9,7 @@ const Main = () => {
     const dispatch = useDispatch()
     const decrement = useSelector((state) => state.decrement) //это и есть стор, проблема здесь (по документации)
 
+
     let addCount = () => {
         dispatch({type: 'INCREMENT'})
     }

@@ -60,7 +60,7 @@ const Carousel = ({children}) => {
                  products.isLoaded
                      ? <Carousel>
                          {[...new Array(products.items.length)].map((_, i) => (
-                             <CardItem data = {products.items[i]} title={'Card ' + (i + 1)} />
+                             <CardItem data = {products.items[i]} />
                          ))}
                         </Carousel>
                      : <h3  style={{color:'red'}}>{products.error}</h3> //TODO сделать прогресс лоадер кольца и если через 15 скунд не подгрузилось, то вывести ошмбку

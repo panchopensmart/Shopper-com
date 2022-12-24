@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {useState} from "react";
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -56,7 +56,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function SearchAppBar() {
 
-    const [anchorEl, setAnchorEl] = React.useState(null)
+    const [anchorEl, setAnchorEl] = useState(null)
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget)
@@ -90,7 +90,7 @@ export default function SearchAppBar() {
                         <Link href="/main"><MenuItem onClick={handleClose}>Главная</MenuItem></Link>
                         <Link href="/account"><MenuItem onClick={handleClose}>Личный кабинет</MenuItem></Link>
                         <Link href="/paymentCart"><MenuItem onClick={handleClose}>Корзина</MenuItem></Link>
-                        <Link href="/delivery"><MenuItem onClick={handleClose}>Заказы</MenuItem></Link>
+                        <Link href="/paymentCart"><MenuItem onClick={handleClose}>Пользователи сайта</MenuItem></Link>
                         <Link href="/signin"><MenuItem onClick={handleClose}>Выход</MenuItem></Link>
 
                     </Menu>

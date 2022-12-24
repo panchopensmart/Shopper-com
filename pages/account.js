@@ -11,6 +11,8 @@ import MouseIcon from '@mui/icons-material/Mouse';
 //TODO сделать все компоненты с несколькими размерами текста (к примеру во всём прложении используется только 4 типа текста)
 //TODO оформить карточки разными цветами и сделать так чтобы они переносились на 1 строку по блоку при адаптиве
 const Account = () => {
+
+    const ID = 15 //TODO получить в пропсе айдишник пользователя с сервера
     return (
         <div className={styles.pageApp}>
         <div className={styles.menu} >

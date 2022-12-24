@@ -1,14 +1,12 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import ParametersBar from "../components/main/ParametersBar";
 import Cards from "../components/main/ProductCard/index";
 import {useDispatch, useSelector} from "react-redux";
 
-
-
 const Main = () => {
+
     const dispatch = useDispatch()
     const decrement = useSelector((state) => state.decrement) //это и есть стор, проблема здесь (по документации)
-
 
     let addCount = () => {
         dispatch({type: 'INCREMENT'})
@@ -19,8 +17,10 @@ const Main = () => {
         console.log(decrement)
     }
 
+
     return (
         <div>
+            {/*//TODO пофиксить оптимтзацию карусели, при увеличении масштаба замедляется эффект  (проблема в анимации, она слишком долгая )*/}
             <ParametersBar></ParametersBar>
             <Cards></Cards>
             <button onClick={()=>{addCount()}}>add</button>

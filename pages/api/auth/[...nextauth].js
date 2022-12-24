@@ -14,8 +14,8 @@ export const authOptions = {
             // e.g. domain, username, password, 2FA token, etc.
             // You can pass any HTML attribute to the <input> tag through the object.
             credentials: {
-                username: { label: "Логин", type: "text" },
-                password: { label: "Пароль", type: "password" }
+                username: { label: "Login", type: "text" },
+                password: { label: "Password", type: "password" }
             },
             async authorize(credentials,) {
                 const res = await fetch('https://dummyjson.com/auth/login', {

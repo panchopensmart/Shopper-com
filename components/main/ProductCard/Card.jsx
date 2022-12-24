@@ -45,10 +45,10 @@ const CardItem = ({data, title, content}) => {
                     </Tooltip>
                 </div>
                 <div className={styles.rightChip}>
+                    <Chip sx={{paddingX: "10px", height: "40px"}} variant="filled" label={<p style={{fontSize: "40px", fontWeight: "bold"}}>{data.price} €</p>}/>
                     <Tooltip describeChild title="Buy the product now">
                         <Button sx={{height: "40px"}} variant={"contained"} color={Math.round(data.rating) > 4 ? "success" : "warning" }>{<BiPackage style={{fontSize: "27px"}}/>}</Button>
                     </Tooltip>
-                    <Chip sx={{paddingX: "10px", height: "40px"}} variant="filled" label={<p style={{fontSize: "40px", fontWeight: "bold"}}>{data.price} €</p>}/>
                 </div>
 
             </div>

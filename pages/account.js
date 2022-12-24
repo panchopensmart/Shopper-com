@@ -12,7 +12,7 @@ import MouseIcon from '@mui/icons-material/Mouse';
 //TODO оформить карточки разными цветами и сделать так чтобы они переносились на 1 строку по блоку при адаптиве
 const Account = () => {
     const [data, setData] = useState({
-        error: null,
+        error: false,
         isLoaded: false,
         items: []
     })
@@ -33,7 +33,7 @@ const Account = () => {
     return (
         <div className={styles.pageApp}>
             {data.isLoaded
-                ? <>
+                && <>
                     <div className={styles.menu}>
                         <div className={styles.userNameCard}>
                             <UserAccount firstname={data.items.firstName} lastname={data.items.lastName}/>
@@ -60,9 +60,11 @@ const Account = () => {
                         <Chip size="small" icon={<MouseIcon/>} label="Кликните слева по плитке..." variant="outlined"
                               style={{width: "250px", fontWeight: "bold"}}/>
                     </div>
+                    {data.error
+                        && <p style={{alignItems: "center", width: "460px"}}>Please reload this page.<br/>
+                            *Reason problem - <span style={{color: "red"}}>{data.error}</span></p>
+                    }
                 </>
-                : <p style={{alignItems: "center"}}>Please reload this page.<br/>
-                    *Reason problem - <span style={{color: "red"}}>{data.error}</span></p>
             }
         </div>
     );

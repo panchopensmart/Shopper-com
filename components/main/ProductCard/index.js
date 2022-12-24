@@ -4,7 +4,6 @@ import styles from '../../../styles/main/ProductCard/productCard.module.scss'
 import CardItem from "./Card";
 
 
-const CARDS = 3
 const MAX_VISIBILITY = 3
 const Carousel = ({children}) => {
     const [active, setActive] = useState(2);
@@ -60,7 +59,7 @@ const Carousel = ({children}) => {
                  products.isLoaded
                      ? <Carousel>
                          {[...new Array(products.items.length)].map((_, i) => (
-                             <CardItem data = {products.items[i]} />
+                             <CardItem data = {products.items[i]} key={products.items[i].id}/>
                          ))}
                         </Carousel>
                      : <h3  style={{color:'red'}}>{products.error}</h3> //TODO сделать прогресс лоадер кольца и если через 15 скунд не подгрузилось, то вывести ошмбку

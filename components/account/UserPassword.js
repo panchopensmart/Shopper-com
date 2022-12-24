@@ -5,16 +5,19 @@ import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import styles from '../../styles/account.module.scss'
 
-const UserBalance = () => {
+const UserPassword = ({email, username}) => {
     return (
         <Card className={styles.userBalance}>
             <CardActionArea sx={{backgroundColor: "#A6D2E3"}}>
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                        Баланс
+                        Your account data
                     </Typography>
                     <Typography variant="body1" color="text.secondary">
-                        0 руб.
+                        <b>Email</b> - {email}
+                    </Typography>
+                    <Typography variant="body1" color="text.secondary">
+                        <b>Nickname</b> - {username}
                     </Typography>
                 </CardContent>
             </CardActionArea>
@@ -22,4 +25,4 @@ const UserBalance = () => {
     );
 };
 
-export default UserBalance;
+export default UserPassword;

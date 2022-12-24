@@ -5,23 +5,23 @@ import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import styles from '../../styles/account.module.scss'
 
-const UserDelivery = () => {
+const UserPayment = ({cardData}) => {
     return (
             <Card className={styles.userDelivery}>
                 <CardActionArea style={{backgroundColor: "#B8A6E3"}}>
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
-                            Доставка
+                            Payment Card
                         </Typography>
                         <br />
                         <Typography variant="h6" color="text.secondary">
-                            Ближайшая доставка ожидается:
+                            <b>Card number</b> - {"..." + cardData?.cardNumber.slice(12, 16)}
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                            (Город Москва, Улица Ленина, дом-6, к 1)
+                        <Typography variant="h6" color="text.secondary">
+                            <b>Currency</b> - {cardData.currency}
                         </Typography>
-                        <Typography variant="body2" style={{color: "#94E388", border: "2px solid #94E388", borderRadius: "5px", width: "62px", fontWeight: "bold", marginTop: "10px"}}>
-                            24.22.12
+                        <Typography variant="body2" style={{color: "#94E388", border: "2px solid #94E388", borderRadius: "5px", width: "60px", fontWeight: "bold", marginTop: "10px"}}>
+                            {cardData.cardExpire}
                         </Typography>
                     </CardContent>
                 </CardActionArea>
@@ -30,4 +30,4 @@ const UserDelivery = () => {
     );
 };
 
-export default UserDelivery;
+export default UserPayment;

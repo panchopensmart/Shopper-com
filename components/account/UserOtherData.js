@@ -5,16 +5,19 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import styles from '../../styles/account.module.scss'
 
-const Weather = () => {
+const UserOtherData = ({ein, ssn}) => {
     return (
-        <Card  className={styles.weather}>
-            <CardActionArea style={{backgroundColor: "#F9E8BD"}}>
+        <Card className={styles.userLiked}>
+            <CardActionArea style={{backgroundColor: "#E0D2F9"}}>
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                        Чеки
+                        Other
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        Посмотреть чеки оплаты
+                    <Typography gutterBottom variant="body2" component="div">
+                        <b>EIN</b> - {ein}
+                    </Typography>
+                    <Typography gutterBottom variant="body2" component="div">
+                        <b>SSN</b> - {ssn}
                     </Typography>
                 </CardContent>
             </CardActionArea>
@@ -22,4 +25,4 @@ const Weather = () => {
     );
 };
 
-export default Weather;
+export default UserOtherData;

@@ -90,7 +90,6 @@ export default function SearchAppBar() {
                         <Link href="/main"><MenuItem onClick={handleClose}>Главная</MenuItem></Link>
                         <Link href="/account"><MenuItem onClick={handleClose}>Личный кабинет</MenuItem></Link>
                         <Link href="/paymentCart"><MenuItem onClick={handleClose}>Корзина</MenuItem></Link>
-                        <Link href="/paymentCart"><MenuItem onClick={handleClose}>Пользователи сайта</MenuItem></Link>
                         <Link href="/signin"><MenuItem onClick={handleClose}>Выход</MenuItem></Link>
 
                     </Menu>

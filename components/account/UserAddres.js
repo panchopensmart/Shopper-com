@@ -5,24 +5,23 @@ import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import styles from '../../styles/account.module.scss'
 
-const UserSale = () => {
+const UserAddres = ({address}) => {
     return (
         <Card className={styles.userPersonalSale}>
             <CardActionArea style={{backgroundColor: "#C2CEFA"}}>
                 <CardContent>
-                    <Typography gutterBottom variant="h2" component="div">
-                        25%
-                    </Typography>
+                    {
+                        address.state
+                            && <img src="https://avatars.mds.yandex.net/i?id=cc6e5a1a5db773edfc8d330d906f6115_l-5265152-images-thumbs&n=13"
+                                    alt="USA"
+                                    style={{width: "100px", borderRadius: "10px"}}
+                                />
+                    }
                     <Typography gutterBottom variant="h5" component="div">
-                       Персональная скидка
+                        {address.city}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        Данная скидка распространяется на категории:
-                    </Typography>
-                    <Typography sx={{color: "gray", fontWeight: "bold"}}>
-                        (Скидка доступна в течении 24 часов)
-                        {//TODO сделать чтобы время менялось после предоставления скидки
-                        }
+                        <b>Address</b> - {address.address}
                     </Typography>
                 </CardContent>
             </CardActionArea>
@@ -30,4 +29,4 @@ const UserSale = () => {
     );
 };
 
-export default UserSale;
+export default UserAddres;

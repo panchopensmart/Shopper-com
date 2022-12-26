@@ -16,8 +16,8 @@ const Account = () => {
     }, [])
     return (
         <div className={styles.pageApp}>
-            {!userdata.error
-                && <>
+            {userdata.isLoaded
+                ? <>
                     <div className={styles.menu}>
                         <div className={styles.userNameCard}>
                             <UserAccount/>
@@ -32,11 +32,11 @@ const Account = () => {
                         </div>
 
                         <div className={styles.userBalance}>
-                            <UserPassword email={userdata.data.email} username={userdata.data.username}/>
+                            <UserPassword/>
                         </div>
 
                         <div className={styles.userLiked}>
-                            <UserOtherData ein={userdata.data.ein} ssn={userdata.data.ssn}/>
+                            <UserOtherData/>
                         </div>
 
                     </div>
@@ -44,8 +44,8 @@ const Account = () => {
                         <Chip size="small" icon={<MouseIcon/>} label="Кликните слева по плитке..." variant="outlined"
                               style={{width: "250px", fontWeight: "bold"}}/>
                     </div>
-
                 </>
+                : <p>Загрузка</p>
             }
         </div>
     );

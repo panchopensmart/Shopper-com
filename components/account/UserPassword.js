@@ -4,8 +4,10 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import styles from '../../styles/account.module.scss'
+import userData from "../../store/global/userData";
 
-const UserPassword = ({email, username}) => {
+const UserPassword = () => {
+    const {email, username} = userData.data
     return (
         <Card className={styles.userBalance}>
             <CardActionArea sx={{backgroundColor: "#A6D2E3"}}>

@@ -9,8 +9,18 @@ const Main = observer(() => {
 
     return (
         <div>
-            <ParametersBar></ParametersBar>
-            <Cards></Cards>
+            {
+                allProducts.error
+                    && <p>Произошла ошибка при загрузке</p>
+            }
+            {(allProducts.isLoaded)
+                ?<>
+                    <ParametersBar></ParametersBar>
+                    <Cards></Cards>
+                </>
+                : <p>Загрузка...</p>
+            }
+
         </div>
     );
 }

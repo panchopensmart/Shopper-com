@@ -1,6 +1,7 @@
 import {makeAutoObservable} from "mobx";
 
 class allProducts {
+    isLoaded = false
     error = null
     data = [];
     url = 'https://dummyjson.com/products'
@@ -11,7 +12,10 @@ class allProducts {
     fetchAllProducts() {
         fetch(this.url)
             .then(res => res.json())
-            .then(result => this.data = result.products)
+            .then(result => {
+                this.data = result.products
+                this.isLoaded = true
+            })
             .catch(e => this.error = e.message)
     }
 }

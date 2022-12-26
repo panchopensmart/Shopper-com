@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import styles from '/styles/account.module.scss'
 import UserAccount from '../components/account/UserAccount'
 import UserPayment from "../components/account/UserPayment";
-import UserAddres from "../components/account/UserAddres";
+import UserAdres from "../components/account/UserAdres";
 import UserPassword from "../components/account/UserPassword";
 
 import UserOtherData from "../components/account/UserOtherData";
@@ -44,7 +44,7 @@ const Account = () => {
                         </div>
 
                         <div className={styles.userPersonalSale}>
-                            <UserAddres address={data.items.address}/>
+                            <UserAdres address={data.items.address}/>
                         </div>
 
                         <div className={styles.userBalance}>

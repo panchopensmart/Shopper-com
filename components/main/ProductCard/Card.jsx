@@ -9,7 +9,8 @@ import {BsFillHeartFill} from "react-icons/bs"
 import DeleteIcon from '@mui/icons-material/Delete';
 import Button from "@mui/material/Button";
 import {BiPackage} from 'react-icons/bi'
-const CardItem = ({data, title, content}) => {
+
+const CardItem = ({dataCard}) => {
     return (
         <div>
             {/*ToDO сделать поля:
@@ -25,16 +26,16 @@ const CardItem = ({data, title, content}) => {
             */}
 
             <div className={styles.headCard}>
-                <p>{data.brand}</p>
+                <p>{dataCard.brand}</p>
             </div>
             <div className={styles.imgBlock}>
-                <img src={data.thumbnail} alt=""/>
+                <img src={dataCard.thumbnail} alt=""/>
             </div>
             <br/>
             <div className={styles.chipsBlock}>
                 <div className={styles.leftChips}>
-                    <Chip  icon={<StarIcon/>} label={data.rating} variant="filled" color={Math.round(data.rating) > 4 ? "success" : "warning" }/>
-                    <Chip sx={{paddingX: "10px"}} icon={<FactoryIconsChip naming={data.category}/>} label={data.category} variant="outlined"/>
+                    <Chip  icon={<StarIcon/>} label={dataCard.rating} variant="filled" color={Math.round(dataCard.rating) > 4 ? "success" : "warning" }/>
+                    <Chip sx={{paddingX: "10px"}} icon={<FactoryIconsChip naming={dataCard.category}/>} label={dataCard.category} variant="outlined"/>
                     <Tooltip title="add to Like" placement="right" >
                         <IconButton >
                             <BsFillHeartFill />
@@ -45,16 +46,16 @@ const CardItem = ({data, title, content}) => {
                     </Tooltip>
                 </div>
                 <div className={styles.rightChip}>
-                    <Chip sx={{paddingX: "10px", height: "40px"}} variant="filled" label={<p style={{fontSize: "40px", fontWeight: "bold"}}>{data.price} €</p>}/>
+                    <Chip sx={{paddingX: "10px", height: "40px"}} variant="filled" label={<p style={{fontSize: "40px", fontWeight: "bold"}}>{dataCard.price} €</p>}/>
                     <Tooltip describeChild title="Buy the product now">
-                        <Button sx={{height: "40px"}} variant={"contained"} color={Math.round(data.rating) > 4 ? "success" : "warning" }>{<BiPackage style={{fontSize: "27px"}}/>}</Button>
+                        <Button sx={{height: "40px"}} variant={"contained"} color={Math.round(dataCard.rating) > 4 ? "success" : "warning" }>{<BiPackage style={{fontSize: "27px"}}/>}</Button>
                     </Tooltip>
                 </div>
 
             </div>
             <div className={styles.descriptionBlock}>
-                <p class={styles.nameProduct}>{data.title}</p>
-                <p>{data.description}</p>
+                <p class={styles.nameProduct}>{dataCard.title}</p>
+                <p>{dataCard.description}</p>
             </div>
 
         </div>

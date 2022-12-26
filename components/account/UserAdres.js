@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import styles from '../../styles/account.module.scss'
 
-const UserAddres = ({address}) => {
+const UserAdres = ({address}) => {
     return (
         <Card className={styles.userPersonalSale}>
             <CardActionArea style={{backgroundColor: "#C2CEFA"}}>
@@ -29,4 +29,4 @@ const UserAddres = ({address}) => {
     );
 };
 
-export default UserAddres;
+export default UserAdres;

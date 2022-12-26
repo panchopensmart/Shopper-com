@@ -1,33 +1,21 @@
 import React, {useEffect} from 'react';
 import ParametersBar from "../components/main/ParametersBar";
-import Cards from "../components/main/ProductCard/index";
-import {useDispatch, useSelector} from "react-redux";
+import Cards from "../components/main/ProductCard/ProductCard";
+import Registration from "./Registration";
+import allProducts from "../store/global/allProducts";
+import {observer} from "mobx-react-lite";
 
-const Main = () => {
-
-    const dispatch = useDispatch()
-    const decrement = useSelector((state) => state.decrement) //это и есть стор, проблема здесь (по документации)
-
-    let addCount = () => {
-        dispatch({type: 'INCREMENT'})
-    }
-
-    let removeCount = () => {
-        dispatch({type: 'DECREMENT'})
-        console.log(decrement)
-    }
-
+const Main = observer(() => {
+    useEffect(() => allProducts.fetchAllProducts(), [])
 
     return (
         <div>
             {/*//TODO пофиксить оптимтзацию карусели, при увеличении масштаба замедляется эффект  (проблема в анимации, она слишком долгая )*/}
             <ParametersBar></ParametersBar>
             <Cards></Cards>
-            <button onClick={()=>{addCount()}}>add</button>
-            <button onClick={()=>{removeCount()}}>remove</button>
-            <p>{decrement}</p>
         </div>
     );
-};
+}
+)
 
 export default Main;

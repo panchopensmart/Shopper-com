@@ -2,9 +2,10 @@ import React, {useEffect, useState} from 'react';
 import {FaChevronCircleLeft, FaChevronCircleRight} from 'react-icons/fa'
 import styles from '../../../styles/main/ProductCard/productCard.module.scss'
 import CardItem from "./Card";
+import allProducts from "../../../store/global/allProducts";
 
 
-const MAX_VISIBILITY = 3
+const MAX_VISIBILITY = 1 //TODO по возможности если будет большое разрешение экрана, то сделать 3
 const Carousel = ({children}) => {
     const [active, setActive] = useState(2);
     const count = React.Children.count(children);
@@ -31,38 +32,16 @@ const Carousel = ({children}) => {
 };
     //TODO сделать чтобы кнопки были как на Озон (стрелки в кружке, при наведении менялись на контрастный цвет)
  const Cards = () => {
-     const [products, setProducts] = useState({
-         error: null,
-         isLoaded: false,
-         items: []
-     })
-     useEffect(()=>{
-         fetch('https://dummyjson.com/products')
-             .then(res => res.json())
-             .then((data) => {
-                 setProducts({
-                     isLoaded: true,
-                     items: data.products
-                 })},
-                     () => {
-                         setProducts({
-                             isLoaded: false,
-                             error: 'Error in query, please reload page',
-                         });
-                     }
-             );
-         console.log(products.error)
-     }, [])
      return (
          <div className='Cards'>
              {
-                 products.isLoaded
+                 allProducts.error === null
                      ? <Carousel>
-                         {[...new Array(products.items.length)].map((_, i) => (
-                             <CardItem data = {products.items[i]} key={products.items[i].id}/>
+                         {allProducts.data.map((dataCard) => (
+                             <CardItem dataCard={dataCard}/>
                          ))}
                         </Carousel>
-                     : <h3  style={{color:'red'}}>{products.error}</h3> //TODO сделать прогресс лоадер кольца и если через 15 скунд не подгрузилось, то вывести ошмбку
+                     : <h3  style={{color:'red'}}>{allProducts.error}</h3> //TODO сделать прогресс лоадер кольца и если через 15 скунд не подгрузилось, то вывести ошмбку
              }
          </div>
      )

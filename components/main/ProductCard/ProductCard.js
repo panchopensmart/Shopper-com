@@ -34,15 +34,11 @@ const Carousel = ({children}) => {
  const Cards = () => {
      return (
          <div className='Cards'>
-             {
-                 allProducts.error === null
-                     ? <Carousel>
-                         {allProducts.data.map((dataCard) => (
-                             <CardItem dataCard={dataCard}/>
-                         ))}
-                        </Carousel>
-                     : <h3  style={{color:'red'}}>{allProducts.error}</h3> //TODO сделать прогресс лоадер кольца и если через 15 скунд не подгрузилось, то вывести ошмбку
-             }
+             <Carousel>
+                 {allProducts.data.map((dataCard) => (
+                     <CardItem dataCard={dataCard}/>
+                 ))}
+             </Carousel>
          </div>
      )
  }

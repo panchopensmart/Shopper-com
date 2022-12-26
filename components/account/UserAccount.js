@@ -4,8 +4,10 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import {CardActionArea} from '@mui/material';
 import styles from '../../styles/account.module.scss'
+import userData from "../../store/global/userData";
 
-export default function ActionAreaCard({firstname, lastname}) {
+
+export default function ActionAreaCard() {
     return (
         <Card className={styles.userNameCard}>
             <CardActionArea style={{backgroundColor: "#F0ADFF"}}>
@@ -16,7 +18,7 @@ export default function ActionAreaCard({firstname, lastname}) {
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div" >
-                        {firstname} {lastname}
+                        {userData.data.firstname} {userData.data.lastname}
                     </Typography>
                 </CardContent>
             </CardActionArea>

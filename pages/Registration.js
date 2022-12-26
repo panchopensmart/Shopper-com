@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {observer} from "mobx-react-lite";
-import userdata from "../store/global/userdata";
+import userdata from "../store/global/userData";
 import allProducts from "../store/global/allProducts";
 
 

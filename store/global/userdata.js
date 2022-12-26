@@ -1,6 +1,6 @@
 import {makeAutoObservable} from "mobx";
 
-class Userdata {
+class UserData {
     error = null
     data = [];
     userId = 15 //TODO получить это значение их session() - next Auth
@@ -17,4 +17,4 @@ class Userdata {
     }
 }
 
-export default new Userdata()
+export default new UserData()

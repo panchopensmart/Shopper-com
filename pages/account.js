@@ -1,58 +1,42 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import styles from '/styles/account.module.scss'
 import UserAccount from '../components/account/UserAccount'
 import UserPayment from "../components/account/UserPayment";
-import UserAdres from "../components/account/UserAdres";
+import UserAddress from "../components/account/UserAddress";
 import UserPassword from "../components/account/UserPassword";
-
 import UserOtherData from "../components/account/UserOtherData";
 import Chip from '@mui/material/Chip';
 import MouseIcon from '@mui/icons-material/Mouse';
+import userdata from "../store/global/userData";
 //TODO сделать все компоненты с несколькими размерами текста (к примеру во всём прложении используется только 4 типа текста)
 //TODO оформить карточки разными цветами и сделать так чтобы они переносились на 1 строку по блоку при адаптиве
 const Account = () => {
-    const [data, setData] = useState({
-        error: false,
-        isLoaded: false,
-        items: []
-    })
-    const ID = 15 //TODO получить в пропсе айдишник пользователя с сервера
     useEffect(() => {
-        fetch(`https://dummyjson.com/users/${ID}`)
-            .then(res => res.json())
-            .then(userInfo => setData({
-                isLoaded: true,
-                items: userInfo
-            }))
-            .catch((e) => setData({
-                    ...data,
-                    error: e.message
-                })
-            );
+        userdata.fetchUserData()
     }, [])
     return (
         <div className={styles.pageApp}>
-            {data.isLoaded
+            {!userdata.error
                 && <>
                     <div className={styles.menu}>
                         <div className={styles.userNameCard}>
-                            <UserAccount firstname={data.items.firstName} lastname={data.items.lastName}/>
+                            <UserAccount/>
                         </div>
 
                         <div className={styles.userDelivery}>
-                            <UserPayment cardData={data.items.bank}/>
+                            <UserPayment />
                         </div>
 
                         <div className={styles.userPersonalSale}>
-                            <UserAdres address={data.items.address}/>
+                            <UserAddress/>
                         </div>
 
                         <div className={styles.userBalance}>
-                            <UserPassword email={data.items.email} username={data.items.username}/>
+                            <UserPassword email={userdata.data.email} username={userdata.data.username}/>
                         </div>
 
                         <div className={styles.userLiked}>
-                            <UserOtherData ein={data.items.ein} ssn={data.items.ssn}/>
+                            <UserOtherData ein={userdata.data.ein} ssn={userdata.data.ssn}/>
                         </div>
 
                     </div>
@@ -60,10 +44,7 @@ const Account = () => {
                         <Chip size="small" icon={<MouseIcon/>} label="Кликните слева по плитке..." variant="outlined"
                               style={{width: "250px", fontWeight: "bold"}}/>
                     </div>
-                    {data.error
-                        && <p style={{alignItems: "center", width: "460px"}}>Please reload this page.<br/>
-                            *Reason problem - <span style={{color: "red"}}>{data.error}</span></p>
-                    }
+
                 </>
             }
         </div>

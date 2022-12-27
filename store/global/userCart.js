@@ -1,16 +1,16 @@
 import {makeAutoObservable} from "mobx";
 
-class UserData {
+class UserCart {
     isLoaded = false
     error = null
     data = [];
     userId = 15 //TODO получить это значение их session() - next Auth
-    url = `https://dummyjson.com/users/${this.userId}`
+    url = `https://dummyjson.com/carts/${this.userId}`
     constructor() {
         makeAutoObservable(this)
     }
 
-    fetchUserData() {
+    fetchUserCart() {
         fetch(this.url)
             .then(res => res.json())
             .then(result => {
@@ -21,4 +21,4 @@ class UserData {
     }
 }
 
-export default new UserData()
+export default new UserCart()

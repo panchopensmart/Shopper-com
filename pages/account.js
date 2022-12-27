@@ -8,14 +8,20 @@ import UserOtherData from "../components/account/UserOtherData";
 import Chip from '@mui/material/Chip';
 import MouseIcon from '@mui/icons-material/Mouse';
 import userdata from "../store/global/userData";
+import {observer} from "mobx-react-lite";
 //TODO сделать все компоненты с несколькими размерами текста (к примеру во всём прложении используется только 4 типа текста)
 //TODO оформить карточки разными цветами и сделать так чтобы они переносились на 1 строку по блоку при адаптиве
-const Account = () => {
+const Account =  observer(() => {
     useEffect(() => {
         userdata.fetchUserData()
     }, [])
+
     return (
         <div className={styles.pageApp}>
+            {
+                userdata.error
+                && <p>Произошла ошибка при загрузке</p>
+            }
             {userdata.isLoaded
                 ? <>
                     <div className={styles.menu}>
@@ -24,7 +30,7 @@ const Account = () => {
                         </div>
 
                         <div className={styles.userDelivery}>
-                            <UserPayment />
+                            <UserPayment/>
                         </div>
 
                         <div className={styles.userPersonalSale}>
@@ -45,10 +51,10 @@ const Account = () => {
                               style={{width: "250px", fontWeight: "bold"}}/>
                     </div>
                 </>
-                : <p>Загрузка</p>
+                : <p>Загрузка...</p>
             }
         </div>
     );
-};
-
+}
+)
 export default Account;

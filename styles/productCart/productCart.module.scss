@@ -11,27 +11,29 @@ $allBlocksRadius: 25px;
   flex-wrap: wrap;
   padding: $allBlocksMargin;
   margin: $allBlocksMargin;
-  width: 100%;
-  min-width: 700px;
-  min-height: 200px;
+
   background-color: gray;
   border-radius: $allBlocksRadius;
 }
 
 .imgCard {
   min-width: 200px;
-  min-height: 200px;
+  max-height: 200px;
   background-color: green;
   border-radius: $allBlocksRadius;
   margin-right: 50px;
-}
-.twoThirdPart {
   display: flex;
+  justify-content: center;
+  align-items: center;
 
+  img {
+    width: 120px;
+    border-radius: 10px;
+  }
 }
 
 @mixin textBlock {
-  font-size: 26px;
+  font-size: 23px;
   font-weight: bold;
 }
 
@@ -39,12 +41,7 @@ $allBlocksRadius: 25px;
   @include textBlock;
 }
 
-.descriptionBlock {
-  margin-right: 50px;
-}
-
 .btnGroupBlock {
-
   justify-content: space-between;
   display: flex;
   flex-direction: column;

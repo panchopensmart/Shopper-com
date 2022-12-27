@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {FaChevronCircleLeft, FaChevronCircleRight} from 'react-icons/fa'
-import styles from '../../../styles/main/ProductCard/productCard.module.scss'
+import styles from '../../../styles/main/ProductCard/mainCard.module.scss'
 import CardItem from "./Card";
 import allProducts from "../../../store/global/allProducts";
 

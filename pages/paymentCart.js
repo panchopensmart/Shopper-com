@@ -1,22 +1,37 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from '../styles/productCart/productCart.module.scss'
 import ProductCard from "../components/paymentCart/ProductCard";
 import CollectCart from "../components/paymentCart/CollectCart";
+import userCart from "../store/global/userCart";
+import {observer} from "mobx-react-lite";
 //TODO В мобильной версии сделать чтобы при выборе товара кидались отметки к иконке (Badge MUI)
 //TODO реализовать несколько корзин, при добавлении товара в корзину должен быть выбор в какую карзину добавить товар
-const PaymentCart = () => {
+const PaymentCart = observer(() => {
+    useEffect(() => {
+        userCart.fetchUserCart()
+    }, [])
+
     return (
         <div className={styles.mainBlock}>
-            <div>
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
-            </div>
-            <div>
-                <CollectCart/>
-            </div>
+            {
+                userCart.error
+                && <p>Произошла ошибка при загрузке</p>
+            }
+            {userCart.isLoaded
+                ? <>
+                    <div>
+                        {userCart.data.products.map((e) => (
+                            <ProductCard eventData={e}/>
+                        ))}
+                    </div>
+                    <div>
+                        <CollectCart/>
+                    </div>
+                </>
+                : <p>Загрузка...</p>
+            }
         </div>
     );
-};
+})
 
 export default PaymentCart;

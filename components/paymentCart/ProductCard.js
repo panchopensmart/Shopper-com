@@ -8,13 +8,11 @@ import {BiRightArrow} from "react-icons/bi"
 import allProducts from "../../store/global/allProducts";
 import {observer} from "mobx-react-lite";
 
-const ProductCard = observer(({eventData}) => {
-    const productId = eventData.id - 1
-    const {title, images} = allProducts.data[`${productId <= 29 ? productId : 0}`]
+const ProductCard = ({eventData}) => {
     return (
         <div className={styles.productCard}>
                     <div className={styles.imgCard}>
-                        {title === "iPhone 9"
+                        {!eventData.images
                             ? "No image :("
                             : <img src={images[0]} alt=""/>}
 
@@ -37,14 +35,13 @@ const ProductCard = observer(({eventData}) => {
                             </ButtonGroup>
                             <ButtonGroup variant="contained" aria-label="outlined primary button group" color="success">
                                 <Button startIcon={<DeleteIcon/>} sx={{height: "40px"}} color="error">Удалить из заказа</Button>
-                                <Button endIcon={<BiRightArrow/>} sx={{height: "40px"}} color="success">Добавить в
-                                    заказ</Button>
+                                <Button endIcon={<BiRightArrow/>} sx={{height: "40px"}} color="success">Добавить в заказ</Button>
                             </ButtonGroup>
                         </div>
                     </div>
         </div>
     );
-})
+}
 
 
 export default ProductCard;

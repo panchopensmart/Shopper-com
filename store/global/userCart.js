@@ -1,6 +1,7 @@
 import {makeAutoObservable} from "mobx";
 
 class UserCart {
+    isReloaded = false
     isLoaded = false
     error = null
     data = [];
@@ -15,7 +16,18 @@ class UserCart {
             .then(res => res.json())
             .then(result => {
                 this.isLoaded = true
-                this.data = result
+                this.data = result.products
+            })
+            .catch(e => this.error = e.message)
+    }
+
+    fetchCartByReloadPage() {
+        fetch(this.url)
+            .then(res => res.json())
+            .then(result => {
+                this.isReloaded = !this.isReloaded
+                this.isLoaded = true
+                this.data = result.products
             })
             .catch(e => this.error = e.message)
     }

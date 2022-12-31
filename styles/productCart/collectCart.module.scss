@@ -1,6 +1,39 @@
 //Блок выбраных карточек
+
+.titleBlock {
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid white;
+}
+
+.title {
+  font-size: 23px;
+  margin: 0;
+}
+
+.imgBlock {
+  margin: 0 auto;
+  border-radius: 10px;
+  width: 100%;
+  min-height: 130px;
+  background-color: red;
+}
+
+.bottomBlock {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.totalPrice {
+  padding: 0;
+  margin: 0;
+  font-size: 32px;
+  font-weight: bold;
+}
+
 .collectCart {
-  padding: 25px;
+  padding-top: 25px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -12,8 +45,13 @@
 }
 
 .selectedCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  margin-left: 25px;
   width: 30%;
-  min-height: 300px;
+  min-height: 350px;
   background-color: gray;
   border-radius: 15px;
   margin-bottom: 20px;
@@ -21,7 +59,7 @@
 
 .fieldSelectedCards {
   display: flex;
-  justify-content: space-around;
+  justify-content: start;
   flex-wrap: wrap;
   overflow-y: scroll;
 }
@@ -29,10 +67,23 @@
 //Блок итоговой цены
 .blockCountPrice {
   display: flex;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
   width: 100%;
   height: 80px;
   background-color: #949494;
   border-radius: 10px;
 }
+
+.priceBlock {
+  border-top: 2px solid white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+

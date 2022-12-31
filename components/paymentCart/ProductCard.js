@@ -7,6 +7,7 @@ import ButtonGroup from "@mui/material/ButtonGroup";
 import {BiRightArrow} from "react-icons/bi"
 import allProducts from "../../store/global/allProducts";
 import {observer} from "mobx-react-lite";
+import userCart from "../../store/global/userCart";
 
 const ProductCard = ({eventData}) => {
     return (
@@ -14,7 +15,7 @@ const ProductCard = ({eventData}) => {
                     <div className={styles.imgCard}>
                         {!eventData.images
                             ? "No image :("
-                            : <img src={images[0]} alt=""/>}
+                            : <img src={eventData.images[3]} alt=""/>}
 
                     </div>
                     <div className={styles.cardsBlock}>
@@ -28,14 +29,23 @@ const ProductCard = ({eventData}) => {
                             </div>
                         </div>
                         <div className={styles.btnGroupBlock}>
-                            <ButtonGroup variant="contained" aria-label="outlined primary button group" size="small">
-                                <Button>-</Button>
-                                <input type="text" style={{width: "40px"}} defaultValue={eventData.quantity}/>
-                                <Button>+</Button>
-                            </ButtonGroup>
                             <ButtonGroup variant="contained" aria-label="outlined primary button group" color="success">
-                                <Button startIcon={<DeleteIcon/>} sx={{height: "40px"}} color="error">Удалить из заказа</Button>
-                                <Button endIcon={<BiRightArrow/>} sx={{height: "40px"}} color="success">Добавить в заказ</Button>
+                                <Button
+                                    onClick={() => userCart.deleteProductInPaymentCart(eventData)}
+                                    startIcon={<DeleteIcon/>}
+                                    sx={{height: "40px"}}
+                                    color="error"
+                                >
+                                    Удалить из заказа
+                                </Button>
+                                <Button
+                                    onClick={() => userCart.addProductInPaymentCart(eventData)}
+                                    endIcon={<BiRightArrow/>}
+                                    sx={{height: "40px"}}
+                                    color="success"
+                                >
+                                    Добавить в заказ
+                                </Button>
                             </ButtonGroup>
                         </div>
                     </div>

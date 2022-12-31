@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Chip from '@mui/material/Chip';
 import StarIcon from '@mui/icons-material/Star';
 import styles from '../../../styles/main/ProductCard/mainCard.module.scss'
@@ -9,10 +9,18 @@ import {BsFillHeartFill} from "react-icons/bs"
 import DeleteIcon from '@mui/icons-material/Delete';
 import Button from "@mui/material/Button";
 import {BsFillCartPlusFill, BsFillCartXFill, BsCartCheckFill} from 'react-icons/bs'
-
+import DrawerMain from '../DrawerMain'
 import {BiPackage} from 'react-icons/bi'
+import userCart from "../../../store/global/userCart";
+import mainState from '../../../store/mainState'
 
 const CardItem = ({dataCard}) => {
+
+    function setSelected(e) {
+        setIsSelected(!isSelected)
+    }
+
+    const [isSelected, setIsSelected] = useState(false)
     const blockedTitle = dataCard.title === "iPhone 9"//товар IPhone 9 заблокирован из за некорректности api сервиса
 
     return (
@@ -33,37 +41,48 @@ const CardItem = ({dataCard}) => {
                 <p>{dataCard.brand}</p>
             </div>
             <div className={styles.imgBlock}>
-                <img src={dataCard.thumbnail} alt=""/>
+                <DrawerMain
+                    setSelected={setSelected}
+                    isSelected={isSelected}
+                    imgSrc={dataCard.thumbnail}
+                    data={dataCard}
+                />
             </div>
             <br/>
             <div className={styles.chipsBlock}>
                 <div className={styles.leftChips}>
-                    <Chip  icon={<StarIcon/>} label={dataCard.rating} variant="filled" color={Math.round(dataCard.rating) > 4 ? "success" : "warning" }/>
-                    <Chip sx={{paddingX: "10px"}} icon={<FactoryIconsChip naming={dataCard.category}/>} label={dataCard.category} variant="outlined"/>
-                    <Tooltip title="add in my cart" placement="right" >
-                        <IconButton disabled={blockedTitle}>
-                            {blockedTitle
-                                ? <BsFillCartXFill/>
+                    <Chip icon={<StarIcon/>}
+                          label={dataCard.rating}
+                          variant="filled"
+                          color={Math.round(dataCard.rating) > 4 ? "success" : "warning"}
+                    />
+                    <Chip sx={{paddingX: "10px"}}
+                          icon={<FactoryIconsChip naming={dataCard.category}/>}
+                          label={dataCard.category} variant="outlined"
+                    />
+
+                    <IconButton
+                        disabled={blockedTitle || isSelected === true}
+                        onClick={() => {
+                            userCart.addUserSelectedProducts(dataCard)
+                            setIsSelected(!isSelected)
+                        }}
+                    >
+                        {blockedTitle
+                            ? <BsFillCartXFill/>
+                            : (isSelected)
+                                ? <BsCartCheckFill/>
                                 : <BsFillCartPlusFill/>
-                            }
-                            {
-                                // TODO при клике поменять иконку на которая с галочкой, а если кликнуть которая с галочкой получить с плюсиком (реализовать с помощью дополнительной переменной со значением true / false)
-                            }
-                        </IconButton>
-                    </Tooltip>
+                        }
+                    </IconButton>
                 </div>
                 <div className={styles.rightChip}>
-                    <Chip sx={{paddingX: "10px", height: "40px"}} variant="filled" label={<p style={{fontSize: "40px", fontWeight: "bold"}}>{dataCard.price} €</p>}/>
-                    <Tooltip describeChild title="Buy the product now">
-                        <Button sx={{height: "40px"}}
-                                disabled={blockedTitle}
-                                variant={"contained"} color={Math.round(dataCard.rating) > 4 ? "success" : "warning" }
-                        >
-                            {<BiPackage style={{fontSize: "27px"}}/>}
-                        </Button>
-                    </Tooltip>
+                    <Chip
+                        sx={{paddingX: "10px", height: "40px"}}
+                        variant="filled"
+                        label={<p style={{fontSize: "40px", fontWeight: "bold"}}>{dataCard.price} €</p>}
+                    />
                 </div>
-
             </div>
             <div className={styles.descriptionBlock}>
                 <p class={styles.nameProduct}>{dataCard.title}</p>

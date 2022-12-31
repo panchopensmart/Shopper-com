@@ -1,10 +1,13 @@
 import {makeAutoObservable} from "mobx";
 
 class UserCart {
-    isReloaded = false
+    countProducts = 0
+    nowBuyProduct;
     isLoaded = false
     error = null
     data = [];
+    userSelectedProducts = []
+    userPaymentCart = []
     userId = 15 //TODO получить это значение их session() - next Auth
     url = `https://dummyjson.com/carts/${this.userId}`
     constructor() {
@@ -21,15 +24,21 @@ class UserCart {
             .catch(e => this.error = e.message)
     }
 
-    fetchCartByReloadPage() {
-        fetch(this.url)
-            .then(res => res.json())
-            .then(result => {
-                this.isReloaded = !this.isReloaded
-                this.isLoaded = true
-                this.data = result.products
-            })
-            .catch(e => this.error = e.message)
+    addProductInPaymentCart (card) {
+        this.userPaymentCart.push(card)
+        this.deleteProductInPaymentCart(card)
+    }
+
+    deleteProductInPaymentCart(card) {
+        this.data = this.data.filter((e) => {
+            return e.id !== card.id
+        })
+    }
+
+
+    addUserSelectedProducts(product) {
+        this.userSelectedProducts.push(product)
+
     }
 }
 

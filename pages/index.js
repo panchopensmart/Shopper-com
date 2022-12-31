@@ -1,5 +1,5 @@
 import { useSession, signIn, signOut } from "next-auth/react"
-import React from 'react';
+import React, {useEffect} from 'react';
 import Main from './main'
 
 

@@ -10,10 +10,10 @@ import userdata from "../store/global/userData";
 const PaymentCart = observer(() => {
 
     useEffect(() => {
-        if (userCart.data) {
             userCart.fetchUserCart()
-        }
+            userCart.userPaymentCart = []
     }, [])
+
 
     return (
         <div className={styles.mainBlock}>
@@ -27,6 +27,7 @@ const PaymentCart = observer(() => {
                         {userCart.data.map((e) => (
                             <ProductCard eventData={e}/>
                         ))}
+
                     </div>
                     <div>
                         <CollectCart/>

@@ -1,9 +1,10 @@
 import React, {useEffect} from 'react';
-import ParametersBar from "../components/main/ParametersBar";
+import ParametersBar from "../components/main/ParametersBar/ParametersBar";
 import Cards from "../components/main/ProductCard/ProductCard";
 import allProducts from "../store/global/allProducts";
 import {observer} from "mobx-react-lite";
-import userdata from "../store/global/userData";
+
+
 
 const Main = observer(() => {
     useEffect(() => {

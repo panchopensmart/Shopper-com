@@ -9,8 +9,8 @@ const BlockSelectedProduct = () => {
     return (
         <div className={styles.fieldSelectedCards}>
             {userCart.nowBuyProduct
-                ? <SelectedBlock data={userCart.nowBuyProduct} flagBuyNow={true}/>
-                : (
+                    //TODO сделать вывод карточки nowByProduct (при релоаде выаёт ошибку)
+                &&(
                     <>
                         {
                             userCart.userPaymentCart.map((e) => (
@@ -18,16 +18,16 @@ const BlockSelectedProduct = () => {
                             ))
                         }
                         {
-                            userCart.userSelectedProducts.map((e) => (
-                                <SelectedBlock data={e}/>
-                            ))
+                            Array.from(userCart.userSelectedProducts, (e) => {
+                                return <SelectedBlock data={e}/>
+                            } )
+                            // userCart.userSelectedProducts.map((e) => (
+                            //     <SelectedBlock data={e}/>
+                            // ))
                         }
                     </>
                 )
             }
-
-
-
         </div>
     );
 };

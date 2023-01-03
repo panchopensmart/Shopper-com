@@ -1,14 +1,15 @@
 import {makeAutoObservable} from "mobx";
+import Notification from '../Notifications'
 
 class UserCart {
-    countProducts = 0
-    nowBuyProduct;
+    nowBuyProduct = []; //продукт который хотят купить прямо сейчас (массив сделан чтобы не нарушать концепцию приложенияы)
     isLoaded = false
     error = null
-    data = [];
-    userSelectedProducts = []
+    data = []; //данные
+    userSelectedProducts = []// выбраные продукты из картизы
+    idSelectedProducts = []
     userPaymentCart = []
-    userId = 15 //TODO получить это значение их session() - next Auth
+    userId = 15 //TODO получить это значение из session() - next Auth
     url = `https://dummyjson.com/carts/${this.userId}`
     constructor() {
         makeAutoObservable(this)
@@ -38,7 +39,19 @@ class UserCart {
 
     addUserSelectedProducts(product) {
         this.userSelectedProducts.push(product)
+        this.idSelectedProducts.push(product.id)
+    }
 
+    addNowBuyProduct(card) {
+        this.nowBuyProduct.push(card)
+        Notification.MessageByProductNow = true //показать уведомление что нужно удалить если не будет оплаты
+
+    }
+
+    deleteNowBuyProduct(card) {
+        this.nowBuyProduct = this.nowBuyProduct.filter((e) => {
+            return e.id !== card.id
+        })
     }
 }
 

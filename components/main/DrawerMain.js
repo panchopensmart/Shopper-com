@@ -17,6 +17,7 @@ import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import userCart from "../../store/global/userCart";
 import Link from "next/link"
+import Notification from "../../store/Notifications";
 
 export default function TemporaryDrawer({imgSrc, data, isSelected, setSelected}) {
     const [state, setState] = React.useState({
@@ -108,12 +109,12 @@ export default function TemporaryDrawer({imgSrc, data, isSelected, setSelected})
                     <Button
                         startIcon={data.title === "iPhone 9"
                             ? <RemoveShoppingCartIcon/>
-                            : isSelected
+                            : isSelected || userCart.idSelectedProducts.includes(data.id)
                                 ? <ShoppingCartCheckoutIcon/>
                                 : <AddShoppingCartIcon/>}
                         variant="contained"
                         className={styles.addToCartBtn}
-                        disabled={data.title === "iPhone 9" || isSelected === true}
+                        disabled={data.title === "iPhone 9" || isSelected === true || userCart.idSelectedProducts.includes(data.id)}
                         onClick={() => {
                             userCart.addUserSelectedProducts(data)
                             setSelected()
@@ -128,8 +129,8 @@ export default function TemporaryDrawer({imgSrc, data, isSelected, setSelected})
                             variant="contained"
                             className={styles.buyNowBtn}
                             disabled={data.title === "iPhone 9"}
-                            onClick={()=> {
-                                userCart.nowBuyProduct = data
+                            onClick={() => {
+                                userCart.addNowBuyProduct(data)
                             }}
                         >
                             Buy product now

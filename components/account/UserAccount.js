@@ -6,19 +6,19 @@ import {CardActionArea} from '@mui/material';
 import styles from '../../styles/account.module.scss'
 import userData from "../../store/global/userData";
 
-
 export default function ActionAreaCard() {
+    const {firstName, lastName} = userData.data
     return (
         <Card className={styles.userNameCard}>
             <CardActionArea style={{backgroundColor: "#F0ADFF"}}>
                 <CardMedia draggable="false"
-                    component="img"
-                    height="140"
-                    image="/backgroundImageCard.jpg"
+                           component="img"
+                           height="140"
+                           image="/backgroundImageCard.jpg"
                 />
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="div" >
-                        {userData.data.firstname} {userData.data.lastname}
+                    <Typography gutterBottom variant="h5" component="div">
+                        {firstName} {lastName}
                     </Typography>
                 </CardContent>
             </CardActionArea>

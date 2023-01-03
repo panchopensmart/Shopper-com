@@ -17,32 +17,33 @@ import {observer} from "mobx-react-lite";
 
 const SelectedBlock = observer(({data, flagBuyNow}) => {
     let [count, setCount] = useState(1)
+
         return (
             <div className={styles.selectedCard}>
                 <div className={styles.titleBlock}>
                     <p className={styles.title}>{data.title.length > 19 ? data.title.substring(0, 30) + "..." : data.title}</p>
 
                 </div>
-                {
-                    flagBuyNow
-                    && <Tooltip title={<b>Please remove the selected product from the cart
-                        if you are not going to purchase this product.
-                        Otherwise, you will not be able to use the service
-                        *Сlick on the field to continue</b>}
-                                placement="right"
-                                sx={{cursor: 'pointer'}}
-                    >
-                        <Chip color="error" size="small" icon={<ErrorIcon/>} label="Attention"/>
-                    </Tooltip>
-                }
                 <div className={styles.imgBlock}>
-                    <img src="" alt="img"/>
+                    <img src={data.images[0]} alt="img" width={180}/>
+                    {
+                        flagBuyNow
+                        && <Tooltip title={<b>Please remove the selected product from the cart
+                            if you are not going to purchase this product.
+                            Otherwise, you will not be able to use the service
+                            *Сlick on the field to continue</b>}
+                                    placement="left-end"
+                                    sx={{cursor: 'pointer'}}
+                        >
+                            <ErrorIcon sx={{float: "left"}}/>
+                        </Tooltip>
+                    }
                 </div>
                 <div className={styles.priceBlock}>
                     <div className={styles.bottomBlock}>
                         <p className={styles.totalPrice}>{data.price * count} €</p>
                     </div>
-                    <IconButton sx={{width: "40px", height: "40px"}}>
+                    <IconButton sx={{width: "40px", height: "40px"}} onClick={() => userCart.deleteNowBuyProduct(data)}>
                         <DeleteIcon/>
                     </IconButton>
                 </div>

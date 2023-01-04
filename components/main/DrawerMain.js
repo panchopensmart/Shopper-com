@@ -19,7 +19,7 @@ import userCart from "../../store/global/userCart";
 import Link from "next/link"
 import Notification from "../../store/Notifications";
 
-export default function TemporaryDrawer({imgSrc, data, isSelected, setSelected}) {
+export default function TemporaryDrawer({imgSrc, data}) {
     const [state, setState] = React.useState({
         bottom: false,
     });
@@ -109,15 +109,14 @@ export default function TemporaryDrawer({imgSrc, data, isSelected, setSelected})
                     <Button
                         startIcon={data.title === "iPhone 9"
                             ? <RemoveShoppingCartIcon/>
-                            : isSelected || userCart.idSelectedProducts.includes(data.id)
+                            : userCart.idSelectedProducts.includes(data.id)
                                 ? <ShoppingCartCheckoutIcon/>
                                 : <AddShoppingCartIcon/>}
                         variant="contained"
                         className={styles.addToCartBtn}
-                        disabled={data.title === "iPhone 9" || isSelected === true || userCart.idSelectedProducts.includes(data.id)}
+                        disabled={data.title === "iPhone 9" || userCart.idSelectedProducts.includes(data.id) || userCart.idNowBuyProduct.includes(data.id)}
                         onClick={() => {
                             userCart.addUserSelectedProducts(data)
-                            setSelected()
                         }}
                     >
                         Add to cart
@@ -128,7 +127,7 @@ export default function TemporaryDrawer({imgSrc, data, isSelected, setSelected})
                             color="success"
                             variant="contained"
                             className={styles.buyNowBtn}
-                            disabled={data.title === "iPhone 9"}
+                            disabled={data.title === "iPhone 9" || userCart.idNowBuyProduct.includes(data.id)}
                             onClick={() => {
                                 userCart.addNowBuyProduct(data)
                             }}

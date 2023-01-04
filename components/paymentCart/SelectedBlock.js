@@ -16,7 +16,19 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import {observer} from "mobx-react-lite";
 
 const SelectedBlock = observer(({data, flagBuyNow}) => {
-    let [count, setCount] = useState(1)
+        let [count, setCount] = useState(1)
+        const imgProduct = {
+            height: "160px",
+            maxWidth: "280px",
+            borderRadius: "10px",
+
+        }
+
+        const imgBlock = {
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
+        }
 
         return (
             <div className={styles.selectedCard}>
@@ -24,39 +36,44 @@ const SelectedBlock = observer(({data, flagBuyNow}) => {
                     <p className={styles.title}>{data.title.length > 19 ? data.title.substring(0, 30) + "..." : data.title}</p>
 
                 </div>
-                <div className={styles.imgBlock}>
-                    <img src={data.images[0]} alt="img" width={180}/>
+                <div className={styles.imgBlock} style={imgBlock}>
+
                     {
-                        flagBuyNow
-                        && <Tooltip title={<b>Please remove the selected product from the cart
-                            if you are not going to purchase this product.
-                            Otherwise, you will not be able to use the service
-                            *Сlick on the field to continue</b>}
-                                    placement="left-end"
-                                    sx={{cursor: 'pointer'}}
-                        >
-                            <ErrorIcon sx={{float: "left"}}/>
-                        </Tooltip>
+                        data.thumbnail
+                            ? <img src={data.thumbnail} alt="" style={imgProduct}/>
+                            : <p>No Image</p>
                     }
                 </div>
                 <div className={styles.priceBlock}>
                     <div className={styles.bottomBlock}>
                         <p className={styles.totalPrice}>{data.price * count} €</p>
                     </div>
-                    <IconButton sx={{width: "40px", height: "40px"}} onClick={() => userCart.deleteNowBuyProduct(data)}>
-                        <DeleteIcon/>
+                    <IconButton sx={{width: "40px", height: "40px"}}
+                                onClick={() => {
+                                    if (flagBuyNow) {
+                                        userCart.deleteNowBuyProduct(data)
+                                    } else {
+                                        userCart.deleteUserSelectedProducts(data)
+                                    }
+                                }}>
+                        <DeleteIcon />
                     </IconButton>
                 </div>
                 <div className={styles.counter}>
                     <ButtonGroup size="small" variant="contained">
-                        <Button color="info" onClick={() => count > 1 ? setCount(count - 1) : count}><RemoveCircleIcon/></Button>
-                        <Button color="info" onClick={() => setCount(count + 1)}><AddCircleIcon/></Button>
+                        <Button color="info"
+                                onClick={() => count > 1 ? setCount(count - 1) : count} disabled={flagBuyNow}><RemoveCircleIcon/></Button>
+                        <Button color="info" onClick={() => setCount(count + 1)} disabled={flagBuyNow}><AddCircleIcon/></Button>
                     </ButtonGroup>
-                    <Badge color="info" badgeContent={count}
+                    <Badge color={flagBuyNow ? "error" : 'info'} badgeContent={flagBuyNow ? 0 : count}
                            showZero={true}
                     >
                         <ShoppingCartIcon/>
                     </Badge>
+                    {
+                        flagBuyNow
+                            && <Button variant="contained" disabled>Pay!</Button>
+                    }
                 </div>
             </div>
         );

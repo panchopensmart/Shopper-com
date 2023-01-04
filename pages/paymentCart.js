@@ -39,12 +39,6 @@ const PaymentCart = observer(() => {
             {userCart.isLoaded
                 ? <>
                     <div>
-                        {userCart.data.map((e) => (
-                            <ProductCard eventData={e}/>
-                        ))}
-
-                    </div>
-                    <div>
                         <CollectCart/>
                     </div>
                     {

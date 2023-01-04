@@ -8,9 +8,11 @@ class UserCart {
     data = []; //данные
     userSelectedProducts = []// выбраные продукты из картизы
     idSelectedProducts = []
+    idNowBuyProduct = []
     userPaymentCart = []
     userId = 15 //TODO получить это значение из session() - next Auth
     url = `https://dummyjson.com/carts/${this.userId}`
+
     constructor() {
         makeAutoObservable(this)
     }
@@ -25,7 +27,7 @@ class UserCart {
             .catch(e => this.error = e.message)
     }
 
-    addProductInPaymentCart (card) {
+    addProductInPaymentCart(card) {
         this.userPaymentCart.push(card)
         this.deleteProductInPaymentCart(card)
     }
@@ -36,7 +38,6 @@ class UserCart {
         })
     }
 
-
     addUserSelectedProducts(product) {
         this.userSelectedProducts.push(product)
         this.idSelectedProducts.push(product.id)
@@ -45,11 +46,18 @@ class UserCart {
     addNowBuyProduct(card) {
         this.nowBuyProduct.push(card)
         Notification.MessageByProductNow = true //показать уведомление что нужно удалить если не будет оплаты
+        this.idNowBuyProduct.push(card.id)
 
     }
 
     deleteNowBuyProduct(card) {
         this.nowBuyProduct = this.nowBuyProduct.filter((e) => {
+            return e.id !== card.id
+        })
+    }
+
+    deleteUserSelectedProducts(card) {
+        this.userSelectedProducts = this.userSelectedProducts.filter((e) => {
             return e.id !== card.id
         })
     }

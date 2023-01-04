@@ -37,7 +37,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 890px;
+
   height: 880px;
   background-color: #9CA3AF;
   border-radius: 25px;
@@ -50,7 +50,7 @@
   justify-content: space-between;
   padding: 10px;
   margin-left: 25px;
-  width: 30%;
+  width: 300px;
   min-height: 350px;
   background-color: gray;
   border-radius: 15px;
@@ -59,10 +59,24 @@
 
 .fieldSelectedCards {
   display: flex;
-  justify-content: start;
+  justify-content: left;
+  padding: 10px;
   flex-wrap: wrap;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
+
+.nowByProductBlock {
+  background-color: #66bf3c;
+  width: 100%;
+  position: relative;
+  z-index: 7;
+  margin-bottom: 10px;
+}
+
+.innerNowByProductBlock {
+  display: flex;
+}
+
 
 //Блок итоговой цены
 .blockCountPrice {

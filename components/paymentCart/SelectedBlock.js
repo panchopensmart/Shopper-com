@@ -6,7 +6,6 @@ import SettingsBackupRestoreIcon from '@mui/icons-material/SettingsBackupRestore
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import IconButton from "@mui/material/IconButton";
 import {Chip, Tooltip} from "@mui/material";
-import ErrorIcon from '@mui/icons-material/Error';
 import userCart from "../../store/global/userCart";
 import Badge from '@mui/material/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -14,6 +13,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import DeleteIcon from '@mui/icons-material/Delete';
 import {observer} from "mobx-react-lite";
+import cartTotalPrice from '../../store/cartTotalPrice'
 
 const SelectedBlock = observer(({data, flagBuyNow}) => {
         let [count, setCount] = useState(1)
@@ -34,7 +34,6 @@ const SelectedBlock = observer(({data, flagBuyNow}) => {
             <div className={styles.selectedCard}>
                 <div className={styles.titleBlock}>
                     <p className={styles.title}>{data.title.length > 19 ? data.title.substring(0, 30) + "..." : data.title}</p>
-
                 </div>
                 <div className={styles.imgBlock} style={imgBlock}>
 
@@ -56,14 +55,26 @@ const SelectedBlock = observer(({data, flagBuyNow}) => {
                                         userCart.deleteUserSelectedProducts(data)
                                     }
                                 }}>
-                        <DeleteIcon />
+                        <DeleteIcon/>
                     </IconButton>
                 </div>
                 <div className={styles.counter}>
                     <ButtonGroup size="small" variant="contained">
                         <Button color="info"
-                                onClick={() => count > 1 ? setCount(count - 1) : count} disabled={flagBuyNow}><RemoveCircleIcon/></Button>
-                        <Button color="info" onClick={() => setCount(count + 1)} disabled={flagBuyNow}><AddCircleIcon/></Button>
+                                onClick={() => {
+                                    if (count > 1) {
+                                        setCount(count - 1)
+                                    } else {
+                                        return count
+                                    }
+
+                                }} disabled={flagBuyNow}><RemoveCircleIcon/></Button>
+                        <Button
+                            color="info"
+                            onClick={() => {
+                                setCount(count + 1)
+                            }}
+                            disabled={flagBuyNow}><AddCircleIcon/></Button>
                     </ButtonGroup>
                     <Badge color={flagBuyNow ? "error" : 'info'} badgeContent={flagBuyNow ? 0 : count}
                            showZero={true}
@@ -72,7 +83,7 @@ const SelectedBlock = observer(({data, flagBuyNow}) => {
                     </Badge>
                     {
                         flagBuyNow
-                            && <Button variant="contained" disabled>Pay!</Button>
+                        && <Button variant="contained" disabled>Pay!</Button>
                     }
                 </div>
             </div>

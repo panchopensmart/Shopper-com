@@ -1,5 +1,6 @@
 import {makeAutoObservable} from "mobx";
 import Notification from '../Notifications'
+import cartTotalPrice from "../cartTotalPrice";
 
 class UserCart {
     nowBuyProduct = []; //продукт который хотят купить прямо сейчас (массив сделан чтобы не нарушать концепцию приложенияы)
@@ -41,6 +42,7 @@ class UserCart {
     addUserSelectedProducts(product) {
         this.userSelectedProducts.push(product)
         this.idSelectedProducts.push(product.id)
+        cartTotalPrice.PriceInCards.push(product.price)
     }
 
     addNowBuyProduct(card) {

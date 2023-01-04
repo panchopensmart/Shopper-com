@@ -1,10 +1,8 @@
 import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials";
 
-
-
 export const authOptions = {
-    // Configure one or more authentication providers
+    secret: process.env.NEXTAUTH_SECRET,
     providers: [
         CredentialsProvider({
             // The name to display on the sign in form (e.g. "Sign in with...")
@@ -33,6 +31,12 @@ export const authOptions = {
                     return data
                 }
                 console.log('ошибка - ', data.message)
+            },
+            jwt: {
+                signingKey: {"kty":"oct","kid":"--","alg":"HS256","k":"--"},
+                verificationOptions: {
+                    algorithms: ["HS256"]
+                }
             }
         })
     ],

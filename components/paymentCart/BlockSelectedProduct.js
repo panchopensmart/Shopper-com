@@ -7,6 +7,7 @@ import Notifications from "../../store/Notifications";
 import {observer} from "mobx-react-lite";
 import {Chip} from "@mui/material";
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
+import cartTotalPrice from "../../store/cartTotalPrice";
 
 const BlockSelectedProduct = observer(() => {
     //TODO сделать чтобы если блок первый в списке, то закруглить края чтобы блок вставал в поле
@@ -15,7 +16,6 @@ const BlockSelectedProduct = observer(() => {
         <div className={styles.fieldSelectedCards}>
             {(
                 <>
-
                     {
                         userCart.nowBuyProduct.length
                             ? <>
@@ -40,7 +40,10 @@ const BlockSelectedProduct = observer(() => {
                         ?
                         <>
                             {userCart.userSelectedProducts.map((e) => (
-                                <SelectedBlock data={e}/>
+                                    <>
+                                        <SelectedBlock data={e}/>
+                                        {cartTotalPrice.sumTotalCount(e.price)}
+                                    </>
                             ))}
                         </>
                         : ''

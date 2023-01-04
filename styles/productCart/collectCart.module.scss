@@ -37,8 +37,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  height: 880px;
+  width: 90vw;
+  max-width: 1500px;
+  height: 90vh;
+  max-height: 900px;
   background-color: #9CA3AF;
   border-radius: 25px;
   margin: 15px;

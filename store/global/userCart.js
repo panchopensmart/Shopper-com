@@ -54,12 +54,25 @@ class UserCart {
         this.nowBuyProduct = this.nowBuyProduct.filter((e) => {
             return e.id !== card.id
         })
+        this.deleteNowBuyProductId(card.id)
     }
+
+    deleteNowBuyProductId(cardID) {
+        this.idNowBuyProduct = this.idNowBuyProduct.filter((e) => {
+            return e !== cardID
+        })
+    }
+
 
     deleteUserSelectedProducts(card) {
         this.userSelectedProducts = this.userSelectedProducts.filter((e) => {
             return e.id !== card.id
         })
+        this.deleteUserSelectedProductId(card.id)
+    }
+
+    deleteUserSelectedProductId(cardID) {
+        this.idSelectedProducts = this.idSelectedProducts.filter(e=> e !== cardID)
     }
 }
 

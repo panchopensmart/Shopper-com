@@ -36,6 +36,7 @@ $allBlocksRadius: 25px;
     grid-template-columns: 1fr;
     justify-items: center;
     width: 100%;
+
   }
   .pageApp {
     grid-template-columns: auto 1fr;
@@ -48,10 +49,12 @@ $allBlocksRadius: 25px;
   }
   .descriptionBlock {
     width: 100%;
-    height: 500px;
+    height: 100vh;
     div {
-      align-items: center;
-
+      img {
+        max-width: 110px;
+        margin-left: 40px;
+      }
     }
   }
   .menu {
@@ -101,4 +104,8 @@ $allBlocksRadius: 25px;
 }
 .weather {
   @include settingCards
+}
+
+.HandleInnerBlock {
+  color: #000000;
 }

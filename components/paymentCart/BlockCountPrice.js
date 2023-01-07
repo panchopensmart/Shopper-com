@@ -12,20 +12,20 @@ const SnackApp = observer(() => {
     const handleClickVariant = (variant) => () => {
         enqueueSnackbar('Sorry, payment is not working at this time!', {variant});
     };
-    let {nowBuyProduct, userPaymentCart, userSelectedProducts} = userCart //TODO проверить если корзина пустая, то заблокировать кнопку pay
+
+    useEffect(() => {
+        cartTotalPrice.countCartPrice()
+    }, [])
 
     return (
         <div className={styles.blockCountPrice}>
             <p>{
-                cartTotalPrice.PriceInCards
-                    ? cartTotalPrice.PriceInCards.reduce((a,b)=> a + b, 0)
-                    : 0
+                cartTotalPrice.totalCartPrice
             }</p>
             <Button
                 onClick={handleClickVariant('error')}
                 variant="contained"
                 color="success"
-                disabled={false}
             >
                 pay for cart
             </Button>

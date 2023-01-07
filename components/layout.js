@@ -7,6 +7,7 @@ const Layout = ({children}) => {
         <div className="content"
              style={{
                  maxWidth: "1920px",
+                 minWidth: "800px",
                  margin: "0 auto",
              }}
         >

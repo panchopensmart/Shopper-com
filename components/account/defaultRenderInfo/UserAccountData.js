@@ -3,13 +3,14 @@ import {CardActionArea} from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
-import styles from '../../styles/account.module.scss'
-import userData from "../../store/global/userData";
+import styles from '../../../styles/account.module.scss'
+import userData from "../../../store/global/userData";
+import FactoryAccountState from "../../../store/userAccount/FactoryAccountState";
 
-const UserPassword = () => {
+const UserAccountData = () => {
     const {email, username} = userData.data
     return (
-        <Card className={styles.userBalance}>
+        <Card className={styles.userBalance} onClick={() => FactoryAccountState.create('addAccountData')}>
             <CardActionArea sx={{backgroundColor: "#A6D2E3"}}>
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
@@ -27,4 +28,4 @@ const UserPassword = () => {
     );
 };
 
-export default UserPassword;
+export default UserAccountData;

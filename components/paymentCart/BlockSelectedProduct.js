@@ -18,7 +18,7 @@ const BlockSelectedProduct = observer(() => {
                 <>
                     {
                         userCart.nowBuyProduct.length
-                            ? <>
+                            ?
                                 <div className={styles.nowByProductBlock}>
                                     <p>Please pay for product now</p>
                                     <div className={styles.innerNowByProductBlock}>
@@ -27,7 +27,6 @@ const BlockSelectedProduct = observer(() => {
                                         ))}
                                     </div>
                                 </div>
-                            </>
                             : <>
                                 {''}
                                 {Notifications.MessageByProductNow = false}
@@ -42,7 +41,6 @@ const BlockSelectedProduct = observer(() => {
                             {userCart.userSelectedProducts.map((e) => (
                                     <>
                                         <SelectedBlock data={e}/>
-                                        {cartTotalPrice.sumTotalCount(e.price)}
                                     </>
                             ))}
                         </>

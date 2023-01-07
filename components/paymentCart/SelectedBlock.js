@@ -21,7 +21,6 @@ const SelectedBlock = observer(({data, flagBuyNow}) => {
             height: "160px",
             maxWidth: "280px",
             borderRadius: "10px",
-
         }
 
         const imgBlock = {
@@ -53,6 +52,7 @@ const SelectedBlock = observer(({data, flagBuyNow}) => {
                                         userCart.deleteNowBuyProduct(data)
                                     } else {
                                         userCart.deleteUserSelectedProducts(data)
+                                        cartTotalPrice.deleteProductInTotalPrice(data.price * count)
                                     }
                                 }}>
                         <DeleteIcon/>
@@ -64,6 +64,7 @@ const SelectedBlock = observer(({data, flagBuyNow}) => {
                                 onClick={() => {
                                     if (count > 1) {
                                         setCount(count - 1)
+                                        cartTotalPrice.minusOneProduct(data.price)
                                     } else {
                                         return count
                                     }
@@ -73,6 +74,7 @@ const SelectedBlock = observer(({data, flagBuyNow}) => {
                             color="info"
                             onClick={() => {
                                 setCount(count + 1)
+                                cartTotalPrice.plusOneProduct(data.price)
                             }}
                             disabled={flagBuyNow}><AddCircleIcon/></Button>
                     </ButtonGroup>

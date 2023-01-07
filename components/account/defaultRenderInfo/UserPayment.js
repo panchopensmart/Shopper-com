@@ -3,13 +3,15 @@ import {CardActionArea} from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
-import styles from '../../styles/account.module.scss'
-import userdata from "../../store/global/userData";
+import styles from '../../../styles/account.module.scss'
+import userdata from "../../../store/global/userData";
+import FactoryAccountState from "../../../store/userAccount/FactoryAccountState";
 
 const UserPayment = () => {
     const {bank} = userdata.data
+
     return (
-        <Card className={styles.userDelivery}>
+        <Card className={styles.userDelivery} onClick={() => FactoryAccountState.create('paymentCard')}>
             <CardActionArea style={{backgroundColor: "#B8A6E3"}}>
                 <CardContent>
                     <Typography

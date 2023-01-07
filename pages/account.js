@@ -1,14 +1,15 @@
 import React, {useEffect} from 'react';
 import styles from '/styles/account.module.scss'
-import UserAccount from '../components/account/UserAccount'
-import UserPayment from "../components/account/UserPayment";
-import UserAddress from "../components/account/UserAddress";
-import UserPassword from "../components/account/UserPassword";
-import UserOtherData from "../components/account/UserOtherData";
+import UserAccount from '../components/account/defaultRenderInfo/UserAccount'
+import UserPayment from "../components/account/defaultRenderInfo/UserPayment";
+import UserAddress from "../components/account/defaultRenderInfo/UserAddress";
+import UserAccountData from "../components/account/defaultRenderInfo/UserAccountData";
+import UserOtherData from "../components/account/defaultRenderInfo/UserOtherData";
 import Chip from '@mui/material/Chip';
 import MouseIcon from '@mui/icons-material/Mouse';
 import userdata from "../store/global/userData";
 import {observer} from "mobx-react-lite";
+import HandleRenderInfo from "../components/account/handleInfo/HandleRenderInfo";
 //TODO сделать все компоненты с несколькими размерами текста (к примеру во всём прложении используется только 4 типа текста)
 //TODO оформить карточки разными цветами и сделать так чтобы они переносились на 1 строку по блоку при адаптиве
 const Account =  observer(() => {
@@ -38,18 +39,14 @@ const Account =  observer(() => {
                         </div>
 
                         <div className={styles.userBalance}>
-                            <UserPassword/>
+                            <UserAccountData/>
                         </div>
 
                         <div className={styles.userLiked}>
                             <UserOtherData/>
                         </div>
-
                     </div>
-                    <div className={styles.descriptionBlock}>
-                        <Chip size="small" icon={<MouseIcon/>} label="Кликните слева по плитке..." variant="outlined"
-                              style={{width: "250px", fontWeight: "bold"}}/>
-                    </div>
+                    <HandleRenderInfo/>
                 </>
                 : <p>Загрузка...</p>
             }

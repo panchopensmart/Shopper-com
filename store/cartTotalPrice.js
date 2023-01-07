@@ -1,22 +1,40 @@
 import {makeAutoObservable} from "mobx";
 
 class CartTotalPrice {
-    PriceInCards = []
+    _priceInCards = []
+    totalCartPrice = 0;
     constructor() {
         makeAutoObservable(this)
     }
 
-    countCartPruce (price) {
-        this.totalCount += price
+    addProductInCart(price) {
+        this._priceInCards.push(price)
+        this.countCartPrice()
     }
 
-    sumTotalCount(price) {
-        this.totalCount + price
+    countCartPrice () {
+        this.totalCartPrice = this._priceInCards.reduce((a, b) => a + b, 0)
     }
 
-    minusTotalCount(price) {
-        this.totalCount - price
+    plusOneProduct(price) {
+        this.totalCartPrice = this.totalCartPrice + price
     }
+
+    minusOneProduct(price) {
+        this.totalCartPrice = this.totalCartPrice - price
+    }
+
+    deleteProductInTotalPrice(totalPrice) {
+        this.totalCartPrice = this.totalCartPrice - totalPrice
+        if(this.totalCartPrice <= 0) {
+            this.totalCartPrice = 0
+            this._priceInCards = []
+        }
+
+    }
+
+
+
 }
 
 export default new CartTotalPrice()

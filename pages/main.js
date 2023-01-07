@@ -19,7 +19,6 @@ const Main = observer(() => {
             }
             {(allProducts.isLoaded)
                 ?<>
-                    <ParametersBar></ParametersBar>
                     <Cards></Cards>
                 </>
                 : <p>Загрузка...</p>

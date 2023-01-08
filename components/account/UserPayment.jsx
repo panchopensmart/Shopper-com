@@ -4,7 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import styles from '../../styles/account.module.scss'
-import {userdata} from "../../store/global/";
+import userdata from "../../store/global/userdata";
 import FactoryAccountState from "../../store/userAccount/FactoryAccountState";
 
 const UserPayment = () => {

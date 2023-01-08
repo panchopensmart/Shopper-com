@@ -2,10 +2,7 @@ import React, {useState} from 'react';
 import styles from './../../styles/productCart/collectCart.module.scss'
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Button from "@mui/material/Button";
-import SettingsBackupRestoreIcon from '@mui/icons-material/SettingsBackupRestore';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import IconButton from "@mui/material/IconButton";
-import {Chip, Tooltip} from "@mui/material";
 import userCart from "../../store/global/userCart";
 import Badge from '@mui/material/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -14,6 +11,7 @@ import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import DeleteIcon from '@mui/icons-material/Delete';
 import {observer} from "mobx-react-lite";
 import cartTotalPrice from '../../store/cartTotalPrice'
+import Image from "next/image";
 
 const SelectedBlock = observer(({data, flagBuyNow}) => {
         let [count, setCount] = useState(1)
@@ -22,7 +20,6 @@ const SelectedBlock = observer(({data, flagBuyNow}) => {
             maxWidth: "280px",
             borderRadius: "10px",
         }
-
         const imgBlock = {
             display: "flex",
             justifyContent: "center",
@@ -38,7 +35,7 @@ const SelectedBlock = observer(({data, flagBuyNow}) => {
 
                     {
                         data.thumbnail
-                            ? <img src={data.thumbnail} alt="" style={imgProduct}/>
+                            ? <Image src={data.thumbnail} alt="" style={imgProduct}/>
                             : <p>No Image</p>
                     }
                 </div>
@@ -52,7 +49,7 @@ const SelectedBlock = observer(({data, flagBuyNow}) => {
                                         userCart.deleteNowBuyProduct(data)
                                     } else {
                                         userCart.deleteUserSelectedProducts(data)
-                                        cartTotalPrice.deleteProductInTotalPrice(data.price * count)
+                                        cartTotalPrice.deleteProductInTotalPrice(data.price)
                                     }
                                 }}>
                         <DeleteIcon/>
@@ -78,8 +75,10 @@ const SelectedBlock = observer(({data, flagBuyNow}) => {
                             }}
                             disabled={flagBuyNow}><AddCircleIcon/></Button>
                     </ButtonGroup>
-                    <Badge color={flagBuyNow ? "error" : 'info'} badgeContent={flagBuyNow ? 0 : count}
-                           showZero={true}
+                    <Badge
+                        color={flagBuyNow ? "error" : 'info'}
+                        badgeContent={flagBuyNow ? 0 : count}
+                        showZero={true}
                     >
                         <ShoppingCartIcon/>
                     </Badge>

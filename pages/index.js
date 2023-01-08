@@ -13,7 +13,10 @@ const MainPage = () => {
         return (
             <>
                 Not signed in <br />
-                <button onClick={() => signIn()}>Sign in</button>
+                <button onClick={(e) => {
+                    e.preventDefault()
+                    signIn()
+                }}>Sign in</button>
             </>
         )
     }

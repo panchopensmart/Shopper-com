@@ -1,11 +1,9 @@
 import {useEffect, useState} from 'react';
 import styles from '../styles/productCart/productCart.module.scss'
-import ProductCard from "../components/paymentCart/ProductCard";
 import CollectCart from "../components/paymentCart/CollectCart";
 import userCart from "../store/global/userCart";
 import {observer} from "mobx-react-lite";
 import userdata from "../store/global/userData";
-import Button from "@mui/material/Button";
 import {Snackbar} from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from "@mui/material/IconButton";

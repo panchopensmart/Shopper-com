@@ -3,7 +3,7 @@
 .titleBlock {
   display: flex;
   justify-content: center;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid black;
 }
 
 .title {
@@ -16,7 +16,7 @@
   border-radius: 10px;
   width: 100%;
   min-height: 130px;
-  background-color: red;
+  background-color: gainsboro;
 }
 
 .bottomBlock {
@@ -41,7 +41,7 @@
   max-width: 1500px;
   height: 90vh;
   max-height: 900px;
-  background-color: #9CA3AF;
+  background-color: #6b6b6b;
   border-radius: 25px;
   margin: 15px;
 }
@@ -51,12 +51,11 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 10px;
-  margin-left: 25px;
   width: 300px;
   min-height: 350px;
-  background-color: gray;
+  background-color: #ffffff;
   border-radius: 15px;
-  margin-bottom: 20px;
+  margin: 10px;
 }
 
 .fieldSelectedCards {
@@ -68,11 +67,21 @@
 }
 
 .nowByProductBlock {
-  background-color: #66bf3c;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #919191;
   width: 100%;
   position: relative;
   z-index: 7;
   margin-bottom: 10px;
+  display: flex;
+
+}
+
+.descriptionBlock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .innerNowByProductBlock {
@@ -87,12 +96,12 @@
   align-items: center;
   width: 100%;
   height: 80px;
-  background-color: #949494;
+  background-color: #9699E3;
   border-radius: 10px;
 }
 
 .priceBlock {
-  border-top: 2px solid white;
+  border-top: 2px solid black;
   display: flex;
   justify-content: space-between;
 }

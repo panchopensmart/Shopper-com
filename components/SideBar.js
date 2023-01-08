@@ -1,4 +1,4 @@
-import React from "react";
+import  {useState} from "react";
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import {HiMenu} from 'react-icons/hi'
@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import Link from "next/link";
 
 const SideBar = () => {
-    const [anchorEl, setAnchorEl] = React.useState(null)
+    const [anchorEl, setAnchorEl] = useState(null)
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget)

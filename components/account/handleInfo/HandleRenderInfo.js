@@ -4,6 +4,7 @@ import Chip from "@mui/material/Chip";
 import MouseIcon from "@mui/icons-material/Mouse";
 import FactoryAccountState from "../../../store/userAccount/FactoryAccountState";
 import {observer} from "mobx-react-lite";
+import Image from "next/image";
 
 const HandleRenderInfo = observer(() => {
 
@@ -21,7 +22,7 @@ const HandleRenderInfo = observer(() => {
                             <>
                                 {
                                     e[0] === "image"
-                                        ? <img src={e[1]} alt="" style={avatarStyles}/>
+                                        ? <Image src={e[1]} alt="" style={avatarStyles}/>
                                         : <p><Chip label={e[0]}></Chip> - {e[1]}</p>
                                 }
                             </>

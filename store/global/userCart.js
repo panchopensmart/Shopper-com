@@ -42,7 +42,7 @@ class UserCart {
     addUserSelectedProducts(product) {
         this.userSelectedProducts.push(product)
         this.idSelectedProducts.push(product.id)
-        cartTotalPrice.addProductInCart(product.price)
+        cartTotalPrice.addProductInCart(product.id, product.price)
     }
 
     addNowBuyProduct(card) {

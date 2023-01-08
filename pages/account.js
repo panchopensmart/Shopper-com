@@ -5,8 +5,6 @@ import UserPayment from "../components/account/defaultRenderInfo/UserPayment";
 import UserAddress from "../components/account/defaultRenderInfo/UserAddress";
 import UserAccountData from "../components/account/defaultRenderInfo/UserAccountData";
 import UserOtherData from "../components/account/defaultRenderInfo/UserOtherData";
-import Chip from '@mui/material/Chip';
-import MouseIcon from '@mui/icons-material/Mouse';
 import userdata from "../store/global/userData";
 import {observer} from "mobx-react-lite";
 import HandleRenderInfo from "../components/account/handleInfo/HandleRenderInfo";

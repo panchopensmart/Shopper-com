@@ -21,7 +21,7 @@ const Carousel = ({children}) => {
     return (
         <div className={styles.carousel}>
             {active > 0 && <button className={styles.navLeft} onClick={() => setActive(i => i - 1)}><FaChevronCircleLeft
-                style={{color: 'blue', width: "50px"}}/></button>}
+                style={{color: '#5091FA', width: "50px"}}/></button>}
             {Children.map(children, (child, i) => (
                 <div className={styles.cardContainer} style={{
                     '--active': i === active ? 1 : 0,
@@ -37,7 +37,7 @@ const Carousel = ({children}) => {
             ))}
             {active < count - 1 &&
                 <button className={styles.navRight} onClick={() => setActive(i => i + 1)}><FaChevronCircleRight
-                    style={{color: 'blue',width: "50px"}}/></button>}
+                    style={{color: '#5091FA',width: "50px"}}/></button>}
         </div>
     );
 };
@@ -47,7 +47,7 @@ const Cards = () => {
         <div className='Cards'>
             <Carousel>
                 {allProducts.data.map((dataCard) => (
-                    <CardItem dataCard={dataCard}/>
+                    <CardItem key={dataCard.id} dataCard={dataCard}/>
                 ))}
             </Carousel>
         </div>

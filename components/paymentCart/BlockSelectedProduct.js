@@ -2,16 +2,20 @@ import React from 'react';
 import SelectedBlock from "./SelectedBlock";
 import styles from './../../styles/productCart/collectCart.module.scss'
 import userCart from "../../store/global/userCart";
-import ProductCard from "./ProductCard";
 import Notifications from "../../store/Notifications";
 import {observer} from "mobx-react-lite";
 import {Chip} from "@mui/material";
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
-import cartTotalPrice from "../../store/cartTotalPrice";
 
 const BlockSelectedProduct = observer(() => {
     //TODO сделать чтобы если блок первый в списке, то закруглить края чтобы блок вставал в поле
     //TODO реализовать чтобы в корзине уже были только уникальные товары
+
+    const noProductsChip = {
+        paddingLeft: "5px",
+        color: "white",
+        margin: "0 auto"
+    }
     return (
         <div className={styles.fieldSelectedCards}>
             {(
@@ -19,14 +23,16 @@ const BlockSelectedProduct = observer(() => {
                     {
                         userCart.nowBuyProduct.length
                             ?
-                                <div className={styles.nowByProductBlock}>
-                                    <p>Please pay for product now</p>
-                                    <div className={styles.innerNowByProductBlock}>
-                                        {userCart.nowBuyProduct.map((e) => (
-                                            <SelectedBlock data={e} flagBuyNow={Notifications.MessageByProductNow}/>
-                                        ))}
-                                    </div>
+                            <div className={styles.nowByProductBlock}>
+                                <div className={styles.descriptionBlock}>
+                                    <Chip label="Please pay for product now"></Chip>
                                 </div>
+                                <div className={styles.innerNowByProductBlock}>
+                                    {userCart.nowBuyProduct.map((e) => (
+                                        <SelectedBlock key={e.id} data={e} flagBuyNow={Notifications.MessageByProductNow}/>
+                                    ))}
+                                </div>
+                            </div>
                             : <>
                                 {''}
                                 {Notifications.MessageByProductNow = false}
@@ -39,9 +45,9 @@ const BlockSelectedProduct = observer(() => {
                         ?
                         <>
                             {userCart.userSelectedProducts.map((e) => (
-                                    <>
-                                        <SelectedBlock data={e}/>
-                                    </>
+                                <>
+                                    <SelectedBlock data={e}/>
+                                </>
                             ))}
                         </>
                         : ''
@@ -49,8 +55,9 @@ const BlockSelectedProduct = observer(() => {
                     }
                     {
                         !userCart.nowBuyProduct.length && !userCart.userSelectedProducts.length
-                        && <Chip sx={{paddingLeft: "5px"}} icon={<WarningAmberIcon color="secondary"/>}
-                                 label="No products in cart"/>
+                        && <Chip sx={noProductsChip}
+                                 label="No products in cart"
+                        />
                     }
 
 

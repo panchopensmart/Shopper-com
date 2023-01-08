@@ -1,4 +1,4 @@
-import React from 'react'
+import {useState} from 'react'
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import {Carousel} from "antd";
@@ -12,18 +12,23 @@ import Inventory2Icon from '@mui/icons-material/Inventory2';
 import StarIcon from '@mui/icons-material/Star';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import CategoryIcon from '@mui/icons-material/Category';
-import {BsFillCartXFill} from 'react-icons/bs'
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import userCart from "../../store/global/userCart";
 import Link from "next/link"
-import Notification from "../../store/Notifications";
+import IconButton from "@mui/material/IconButton";
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import Image from "next/image";
 
 export default function TemporaryDrawer({imgSrc, data}) {
-    const [state, setState] = React.useState({
+    const closeBtn = {
+        width: "40px",
+        height: "40px",
+        margin: '0'
+    }
+    const [state, setState] = useState({
         bottom: false,
     });
-
     const toggleDrawer = (anchor, open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
@@ -34,10 +39,15 @@ export default function TemporaryDrawer({imgSrc, data}) {
 
     const list = (anchor) => (
         <Box
-            //TODO сделать чтобы закрывался при клике вне блока и на клавишу esc
             className={styles.drawerBlock}
             onKeyDown={toggleDrawer(anchor, false)}
         >
+            <IconButton
+                aria-label="delete"
+                sx={closeBtn}
+                onClick={toggleDrawer(anchor, false)}>
+                <HighlightOffIcon/>
+            </IconButton>
             <div className={styles.imageBlock}>
                 {
                     data.images.length !== 1
@@ -48,15 +58,17 @@ export default function TemporaryDrawer({imgSrc, data}) {
                         >
                             {
                                 data.images.map((e) => (
-                                    <div>
-                                        <img src={e} alt=""
-                                             height="400px"
+                                    <div key={e}>
+                                        <Image
+                                            src={e}
+                                            alt="img"
+                                            height="400px"
                                         />
                                     </div>
                                 ))
                             }
                         </Carousel>
-                        : <img src={data.images[0]} alt=""/>
+                        : <Image src={data.images[0]} alt=""/>
                 }
             </div>
             <div className={styles.descriptionBlock}>
@@ -144,9 +156,13 @@ export default function TemporaryDrawer({imgSrc, data}) {
     return (
         <div>
             {['bottom'].map((anchor) => (
-                <React.Fragment key={anchor}>
-                    <img style={{cursor: "pointer"}} src={imgSrc} onClick={toggleDrawer(anchor, true)} alt=""
-                         draggable={false}/>
+                <>
+                    <Image
+                        style={{cursor: "pointer"}}
+                        src={imgSrc}
+                        onClick={toggleDrawer(anchor, true)}
+                        alt="img"
+                        draggable={false}/>
                     <Drawer
                         anchor={anchor}
                         open={state[anchor]}
@@ -154,7 +170,7 @@ export default function TemporaryDrawer({imgSrc, data}) {
                     >
                         {list(anchor)}
                     </Drawer>
-                </React.Fragment>
+                </>
             ))}
         </div>
     );

@@ -1,13 +1,11 @@
-import React, {useEffect} from 'react';
 import styles from "../../styles/productCart/productCart.module.scss";
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Typography from "@mui/material/Typography";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import {BiRightArrow} from "react-icons/bi"
-import allProducts from "../../store/global/allProducts";
-import {observer} from "mobx-react-lite";
 import userCart from "../../store/global/userCart";
+import Image from "next/image";
 
 const ProductCard = ({eventData}) => {
     return (
@@ -15,7 +13,7 @@ const ProductCard = ({eventData}) => {
                     <div className={styles.imgCard}>
                         {!eventData.images
                             ? "No image :("
-                            : <img src={eventData.images[3]} alt=""/>}
+                            : <Image src={eventData.images[3]} alt=""/>}
 
                     </div>
                     <div className={styles.cardsBlock}>
@@ -29,7 +27,11 @@ const ProductCard = ({eventData}) => {
                             </div>
                         </div>
                         <div className={styles.btnGroupBlock}>
-                            <ButtonGroup variant="contained" aria-label="outlined primary button group" color="success">
+                            <ButtonGroup
+                                variant="contained"
+                                aria-label="outlined primary button group"
+                                color="success"
+                            >
                                 <Button
                                     onClick={() => userCart.deleteProductInPaymentCart(eventData)}
                                     startIcon={<DeleteIcon/>}

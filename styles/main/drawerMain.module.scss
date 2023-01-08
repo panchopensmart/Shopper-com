@@ -4,6 +4,7 @@
   justify-content: space-around;
 }
 
+
 .imageBlock {
   img {
     margin-left: 120px;
@@ -84,6 +85,15 @@
     margin-top: 10px;
   }
 }
+
+@media screen and (max-width: 1500px){
+  .drawerBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 
 .addToCartBtn {
 

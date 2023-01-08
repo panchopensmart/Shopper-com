@@ -22,7 +22,7 @@ const HandleRenderInfo = observer(() => {
                             <>
                                 {
                                     e[0] === "image"
-                                        ? <Image src={e[1]} alt="" style={avatarStyles}/>
+                                        ? <img src={e[1]} alt="" style={avatarStyles}/>
                                         : <p><Chip label={e[0]}></Chip> - {e[1]}</p>
                                 }
                             </>

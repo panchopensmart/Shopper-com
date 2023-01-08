@@ -13,7 +13,7 @@ const ProductCard = ({eventData}) => {
                     <div className={styles.imgCard}>
                         {!eventData.images
                             ? "No image :("
-                            : <Image src={eventData.images[3]} alt=""/>}
+                            : <img src={eventData.images[3]} alt=""/>}
 
                     </div>
                     <div className={styles.cardsBlock}>

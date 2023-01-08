@@ -35,7 +35,7 @@ const SelectedBlock = observer(({data, flagBuyNow}) => {
 
                     {
                         data.thumbnail
-                            ? <Image src={data.thumbnail} alt="" style={imgProduct}/>
+                            ? <img src={data.thumbnail} alt="" style={imgProduct}/>
                             : <p>No Image</p>
                     }
                 </div>

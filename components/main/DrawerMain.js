@@ -59,7 +59,7 @@ export default function TemporaryDrawer({imgSrc, data}) {
                             {
                                 data.images.map((e) => (
                                     <div key={e}>
-                                        <Image
+                                        <img
                                             src={e}
                                             alt="img"
                                             height="400px"
@@ -68,7 +68,7 @@ export default function TemporaryDrawer({imgSrc, data}) {
                                 ))
                             }
                         </Carousel>
-                        : <Image src={data.images[0]} alt=""/>
+                        : <img src={data.images[0]} alt=""/>
                 }
             </div>
             <div className={styles.descriptionBlock}>
@@ -157,12 +157,13 @@ export default function TemporaryDrawer({imgSrc, data}) {
         <div>
             {['bottom'].map((anchor) => (
                 <>
-                    <Image
+                    <img
                         style={{cursor: "pointer"}}
                         src={imgSrc}
                         onClick={toggleDrawer(anchor, true)}
                         alt="img"
-                        draggable={false}/>
+                        draggable={false}
+                    />
                     <Drawer
                         anchor={anchor}
                         open={state[anchor]}

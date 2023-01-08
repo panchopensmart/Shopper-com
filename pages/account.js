@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import styles from '/styles/account.module.scss'
 import UserAccount from '../components/account/defaultRenderInfo/UserAccount'
 import UserPayment from "../components/account/defaultRenderInfo/UserPayment";
-import UserAddress from "../components/account/defaultRenderInfo/UserAddress";
 import UserAccountData from "../components/account/defaultRenderInfo/UserAccountData";
 import UserOtherData from "../components/account/defaultRenderInfo/UserOtherData";
 import userdata from "../store/global/userData";
@@ -30,10 +29,6 @@ const Account =  observer(() => {
 
                         <div className={styles.userDelivery}>
                             <UserPayment/>
-                        </div>
-
-                        <div className={styles.userPersonalSale}>
-                            <UserAddress/>
                         </div>
 
                         <div className={styles.userBalance}>

@@ -3,7 +3,7 @@ import {makeAutoObservable} from "mobx";
 class allProducts {
     isLoaded = false
     error = null
-    data = [];
+    data = []; //Данные пользователя
     url = 'https://dummyjson.com/products'
     constructor() {
         makeAutoObservable(this)

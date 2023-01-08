@@ -1,16 +1,17 @@
 import React from 'react';
-import styles from "../../../styles/account.module.scss";
+import styles from "../../styles/account.module.scss";
 import Chip from "@mui/material/Chip";
 import MouseIcon from "@mui/icons-material/Mouse";
-import FactoryAccountState from "../../../store/userAccount/FactoryAccountState";
+import FactoryAccountState from "../../store/userAccount/FactoryAccountState";
 import {observer} from "mobx-react-lite";
 import Image from "next/image";
 
 const HandleRenderInfo = observer(() => {
 
     const avatarStyles = {
-        width: "200px",
-        borderRadius: "20px"
+        width: "80px",
+        borderRadius: "20px",
+        marginLeft: "25%"
     }
 
     return (

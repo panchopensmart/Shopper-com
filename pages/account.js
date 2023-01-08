@@ -1,12 +1,12 @@
 import React, {useEffect} from 'react';
 import styles from '/styles/account.module.scss'
-import UserAccount from '../components/account/defaultRenderInfo/UserAccount'
-import UserPayment from "../components/account/defaultRenderInfo/UserPayment";
-import UserAccountData from "../components/account/defaultRenderInfo/UserAccountData";
-import UserOtherData from "../components/account/defaultRenderInfo/UserOtherData";
+import UserAccount from '../components/account/UserAccount'
+import UserPayment from "../components/account/UserPayment";
+import UserAccountData from "../components/account/UserAccountData";
+import UserOtherData from "../components/account/UserOtherData";
 import userdata from "../store/global/userData";
 import {observer} from "mobx-react-lite";
-import HandleRenderInfo from "../components/account/handleInfo/HandleRenderInfo";
+import HandleRenderInfo from "../components/account/HandleRenderInfo";
 //TODO сделать все компоненты с несколькими размерами текста (к примеру во всём прложении используется только 4 типа текста)
 //TODO оформить карточки разными цветами и сделать так чтобы они переносились на 1 строку по блоку при адаптиве
 const Account =  observer(() => {

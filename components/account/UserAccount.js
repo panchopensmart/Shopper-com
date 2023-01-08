@@ -3,8 +3,8 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import {CardActionArea} from '@mui/material';
-import styles from '../../../styles/account.module.scss'
-import userData from "../../../store/global/userData";
+import styles from '../../styles/account.module.scss'
+import userData from "../../store/global/userData";
 
 export default function ActionAreaCard() {
     const {firstName, lastName} = userData.data
